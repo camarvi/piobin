@@ -13,18 +13,49 @@
 		<p>Cuestionario de Seguimiento.</p>
                 <p>Valoraci&oacute;n Peri&oacute;dica de los Pasos hacia un mejor Estilo de Vida.</p>
 	</div>
-	<div class="grid_9">
-		<p class="azul">Nihil hic munitissimus habendi senatus locus, nihil horum? Quis aute iure reprehenderit in voluptate velit esse. Curabitur blandit tempus ardua ridiculus sed magna. Quam diu etiam furor iste tuus nos eludet?
-		Fabio vel iudice vincam, sunt in culpa qui officia. A communi observantia non est recedendum. Quam temere in vitiis, legem sancimus haerentia. Unam incolunt Belgae, aliam Aquitani, tertiam. Sed haec quis possit intrepidus aestimare tellus. Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae. Quam diu etiam furor iste tuus nos eludet? Nihil hic munitissimus habendi senatus locus, nihil horum? Tu quoque, Brute, fili mi, nihil timor populi, nihil! Curabitur blandit tempus ardua ridiculus sed magna.
-		Ullamco laboris nisi ut aliquid ex ea commodi consequat. Cras mattis iudicium purus sit amet fermentum. Unam incolunt Belgae, aliam Aquitani, tertiam. Pellentesque habitant morbi tristique senectus et netus. A communi observantia non est recedendum. Fictum,  deserunt mollit anim laborum astutumque!</p>
+	<div class="grid_12">
+            <p>1) VALORACI&Oacute;N DEL IMC:</p>
 	</div>
+	<div class="grid_3 prefix_3">
+            FECHA
+	</div>
+        <div class="grid_3">
+            IMC
+	</div>
+        <div class="grid_3">
+            Desviaci&oacute;n Estandar
+	</div>
+    
 	<div class="grid_3">
-		<p class="verde">Inmensae subtilitatis, obscuris et malesuada fames. Quam temere in vitiis, legem sancimus haerentia. Ab illo tempore, ab est sed immemorabili. Quo usque tandem abutere, Catilina, patientia nostra?</p>
-	</div>
-	<div class="grid_4">
-		<p class="rosa">Pellentesque habitant morbi tristique senectus et netus. Pellentesque habitant morbi tristique senectus et netus. Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ambitioni dedisse scripsisse iudicaretur. Plura mihi bona sunt, inclinet, amari petere vellent.</p>
-	</div>
-	<div class="grid_4">
+            <label><b>Al diagn&oacute;stico:</b></label>
+        </div>
+        <div class="grid_3">
+              <input type="text" id="fecha_diagnostico" name="fecha_diagnostico" size="10"/>
+        </div>
+        <div class="grid_3">
+              <input type="text" id="imc_diagnostico" name="imc_diagnostico" size="10"/>
+        </div>
+        <div class="grid_3">
+              <input type="text" id="desviacion_diagnostico" name="desviacion_diagnostico" size="10"/>
+        </div>
+	<div class="grid_3">
+            <label><b>En la evaluaci&oacute;n:</b></label>
+        </div>
+        <div class="grid_3">
+              <input type="text" id="evaluacion_diagnostico" name="evaluacion_diagnostico" size="10"/>
+        </div>
+        <div class="grid_3">
+              <input type="text" id="evaluacion_diagnostico" name="evaluacion_diagnostico" size="10"/>
+        </div>
+        <div class="grid_3">
+              <input type="text" id="evaluacion_diagnostico" name="evaluacion_diagnostico" size="10"/>
+        </div> 
+        <div class="grid_12">
+            <p>Nota:Utilizar la tabla IMC para valoraci&oacute;n antropom&eacute;trica 
+                infanto-juvenil seg&uacute;n estandares de la OMS de 2 a 19 a&ntilde;os</p>
+        </div>
+    
+        <div class="grid_4">
 		<p class="rosa">Qui ipsorum lingua Celtae, nostra Galli appellantur. Pellentesque habitant morbi tristique senectus et netus. Pellentesque habitant morbi tristique senectus et netus.</p>
 	</div>
 	<div class="grid_4">
