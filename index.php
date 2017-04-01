@@ -55,6 +55,8 @@
                 infanto-juvenil seg&uacute;n estandares de la OMS de 2 a 19 a&ntilde;os</p>
         </div>
     
+   
+    
         <div class="grid_4">
 		<p class="rosa">Qui ipsorum lingua Celtae, nostra Galli appellantur. Pellentesque habitant morbi tristique senectus et netus. Pellentesque habitant morbi tristique senectus et netus.</p>
 	</div>
@@ -77,6 +79,10 @@
 	<footer class="grid_12">
 		<p class="amarillo">Mercedem aut nummos unde unde extricat, amaras. At nos hinc posthac, sitientis piros Afros.</p>
 	</footer>
+        
+        <div class="grid_12">
+            <button type='submit' name='imprimir' onClick="window.print()">  Imprimir </button>
+        </div>
 </div>
 </body>
 </html>
