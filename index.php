@@ -539,7 +539,7 @@ if (isset ($_GET['nuhsa'])){
                         <th></th>
                         <th scope="col">Fecha</th>
                         <th scope="col">IMC</th>
-                        <th scope="col">Desviaci&oacute;n Estandar
+                        <th scope="col">Desviaci&oacute;n Estandar</th>
                     </tr>
                     <tr>
                         <th scope="row">Diagn&oacute;stico</th>
@@ -573,86 +573,222 @@ if (isset ($_GET['nuhsa'])){
        
       
           <fieldset>  
-              <legend>2) CAMBIOS DE LA ALIMENTACI&Oacute;N:</legend> 
-           <div class="datos_personales">
-              <label>Fecha Inicio sintomatolog&iacute;a:</label>
-              <input type="text" id="fsintomas" name="fsintomas" size="10" onblur="valida_fecha(this.value)"/>
-           </div>  
-           
-           <div class="colum_personales2"> 
-              <label>N&oacute;dulo palpable:</label> 
-              <label>Si</label><input type="radio" name="nodulo" value="1"/>
-              <label>No</label><input type="radio" name="nodulo" value="0"/>
-          </div>
-          <div class="colum_personales2"> 
-              <label>Tama&ntilde;o en cm:</label>
-              <input type="text" id="cm_nodulo" name="cm_nodulo" size="10"/>
-          </div>        
-          </fieldset>
-          <fieldset>   
-              
-          <div class="colum_personales2_30"> 
-             <label>Localizaci&oacute;n:</label> 
-          </div>  
+              <legend>2) CAMBIOS DE LA ALIMENTACI&Oacute;N (Da una puntuaci&oacute;n de 
+                  0 a 10 a tu cambio)</legend> 
           
-          <div class="colum_personales2_70">      
-              <label>Mama D.</label><input type="checkbox" name="mamad" id="mamad" value="1"/>   
-              <label>Mama I.</label><input type="checkbox" name="mamai" id="mamai" value="1"/> 
-              <label>CSE</label><input type="checkbox" id="cse" name="cse" value="1"/>  
-              <label>CSI</label><input type="checkbox" name="csi" id="csi" value="1"/>  
-              <label>CID</label> <input type="checkbox" name="cid" id="cid" value="1"/> 
-              <label>CII</label> <input type="checkbox" name="cii" id="cii" value="1"/> 
-              <label>Retroareolar</label><input type="checkbox" name="retroareolar" id="retroareolar" value="1"/>  
-          </div>      
+            <table>
+                    <tr>
+                        <th scope="col">ALIMENTACION SANA</th>
+                        <th scope="col">Valoraci&oacute;n ni&ntilde;o*</th>
+                        <th scope="col">Valoraci&oacute;n Padres</th>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">+ Fruta fresca cruda o cocida</th>
+                        <td>
+                           <input type="text" id="frutanino" name="frutanino" size="10"/> 
+                        </td>
+                        <td>
+                           <input type="text" id="frutapadres" name="frutapadres" size="10"/> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">+ Verdura de temporada con pocas grasas</th>
+                       <td>
+                           <input type="text" id="verduranino" name="verduranino" size="10"/> 
+                        </td>
+                        <td>
+                           <input type="text" id="verdurapadres" name="verdurapadres" size="10"/> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">- Comer entrehoras (snacks,dulces,etc)</th>
+                       <td>
+                           <input type="text" id="horasnino" name="horasnino" size="10"/> 
+                        </td>
+                        <td>
+                           <input type="text" id="horaspadres" name="horaspadres" size="10"/> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">- Grasas (mayonesa,nocilla,nata)</th>
+                       <td>
+                           <input type="text" id="grasasnino" name="grasasnino" size="10"/> 
+                        </td>
+                        <td>
+                           <input type="text" id="grasaspadres" name="grasaspadres" size="10"/> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">- Dulces (bolleria, etc)</th>
+                       <td>
+                           <input type="text" id="dulcesnino" name="dulcesnino" size="10"/> 
+                        </td>
+                        <td>
+                           <input type="text" id="dulcespadres" name="dulcespadres" size="10"/> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">- Bebidas dulces (Refrescos, batidos, etc)</th>
+                       <td>
+                           <input type="text" id="bebidasnino" name="bebidasnino" size="10"/> 
+                        </td>
+                        <td>
+                           <input type="text" id="bebidaspadres" name="bebidaspadres" size="10"/> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">Valoraci&oacute;n Total</th>
+                       <td>
+                           <input type="text" id="totalnino" name="totalnino" size="10"/> 
+                        </td>
+                        <td>
+                           <input type="text" id="totalpadres" name="totalpadres" size="10"/> 
+                        </td>
+                    </tr>
+                    
+                    <tr colspan="4">*Si el ni&ntilde;o/a es demasiado peque&ntilde;o para 
+                        responder, preguntarle al padre o madre, si el ni&ntilde;o/a y los
+                        padres otorgan valoraciones diversas, usar las dos columnas.
+                    </tr>
+                </table>
+          
+          
           </fieldset> 
               
           <fieldset>   
-              
-            <div class="colum_personales2_30"> 
-              <label>RETRACCI&Oacute;N PEZ&Oacute;N</label> 
-            </div>  
+            <legend>3) CAMBIOS DE LA ACTIVIDAD F&Iacute;SICA (Da una puntuaci&oacute;n de 
+                  0 a 10 a tu cambio)</legend> 
           
-            <div class="colum_personales2_70">      
-              <label>Mama D.</label><input type="checkbox" name="retraccion_mamad" id="retraccion_mamad" value="1"/>   
-              <label>Mama I.</label><input type="checkbox" name="retraccion_mamai" id="retraccion_mamai" value="1"/>  
-              <label>RECIENTE</label> <input type="checkbox" name="retraccion_reciente" id="retraccion_reciente" value="1"/> 
-            </div>      
-           </fieldset> 
-             
-            <fieldset>   
-              
-            <div class="colum_personales2_30"> 
-                <label>ULCERACI&Oacute;N PEZ&Oacute;N</label> 
-            </div>  
+            <table>
+                    <tr>
+                        <th scope="col">ACTIVIDAD F&Iacute;SICA</th>
+                        <th scope="col">Valoraci&oacute;n ni&ntilde;o*</th>
+                        <th scope="col">Valoraci&oacute;n Padres</th>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">+ Actividad deportiva organizada</th>
+                        <td>
+                           <input type="text" id="deportenino" name="deportenino" size="10"/> 
+                        </td>
+                        <td>
+                           <input type="text" id="deportepadres" name="deportepadres" size="10"/> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">+ Juego espontaneo activo</th>
+                        <td>
+                           <input type="text" id="juegonino" name="juegonino" size="10"/> 
+                        </td>
+                        <td>
+                           <input type="text" id="juegopadres" name="juegopadres" size="10"/> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">+ Movimiento en la vida cotidiana</th>
+                        <td>
+                           <input type="text" id="movimientonino" name="movimientonino" size="10"/> 
+                        </td>
+                        <td>
+                           <input type="text" id="movimientopadres" name="movimientopadres" size="10"/> 
+                        </td>
+                    </tr>
+                    <tr>
+                            <th scope="row">- Actividad sedentaria (TV, PC, etc)</th>
+                        <td>
+                           <input type="text" id="sedentarianino" name="sedentarianino" size="10"/> 
+                        </td>
+                        <td>
+                           <input type="text" id="sedentariapadres" name="sedentariapadres" size="10"/> 
+                        </td>
+                    </tr>
           
-            <div class="colum_personales2_70">      
-              <label>Mama D.</label><input type="checkbox" name="ulceraciond" id="ulceraciond" value="1"/>   
-              <label>Mama I.</label><input type="checkbox" name="ulceracioni" id="ulceracioni" value="1"/>  
-            </div>      
-           </fieldset> 
+                    <tr>
+                        <th scope="row">Valoraci&oacute;n Total</th>
+                       <td>
+                           <input type="text" id="totalfisicanino" name="totalfisicanino" size="10"/> 
+                        </td>
+                        <td>
+                           <input type="text" id="totalfisicapadres" name="totalfisicapadres" size="10"/> 
+                        </td>
+                    </tr>
+                    
+                    <tr colspan="4">*Si el ni&ntilde;o/a es demasiado peque&ntilde;o para 
+                        responder, preguntarle al padre o madre, si el ni&ntilde;o/a y los
+                        padres otorgan valoraciones diversas, usar las dos columnas.
+                    </tr>
+                    
+                    
+            </table>
+          
+           
+          </fieldset> 
              
           <fieldset>   
-                
-            <div class="colum_personales2_30"> 
-                <label>SECRECI&Oacute;N PEZ&Oacute;N</label> 
-            </div>  
+              <legend>4) CAMBIOS DE LA VIDA. Se&ntilde;ala la respuesta que te 
+                  parece m&aacute;s adecuada.
+              </legend> 
           
-            <div class="colum_personales2_70">      
-              <label>Mama D.</label><input type="checkbox" name="secreciond" id="secreciond" value="1"/>  
-              <label>Mama I.</label><input type="checkbox" name="secrecioni" id="secrecioni" value="1"/>  
-            </div>      
-          
-            
-            <div class="colum_personales2_70_d">      
-              <label>Unilateral</label><input type="checkbox" name="unilateral" id="unilateral" value="1"/>   
-              <label>Unip&oacute;rica</label><input type="checkbox" name="uniporica" id="uniporica" value="1"/>  
-            </div>      
-          
-            <div class="colum_personales2_70_d">      
-              <label>Espont&aacute;nea</label><input type="checkbox" name="espontanea" id="espontanea" value="1"/>   
-              <label>Sero-hem&aacute;tica</label><input type="checkbox" name="serohematica" id="serohematica" value="1"/>  
-            </div>      
+            <table>
+                    <tr>
+                        <th scope="col">CALIDAD DE VIDA</th>
+                        <th scope="col">Valoraci&oacute;n ni&ntilde;o*</th>
+                        <th scope="col">Valoraci&oacute;n Padres</th>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">Cambio de humor(serenidad,enfado,etc)</th>
+                        <td>
+                           <input type="text" id="humornino" name="humornino" size="10"/> 
+                        </td>
+                        <td>
+                           <input type="text" id="humorpadres" name="humorpadres" size="10"/> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">Rendimiento escolar</th>
+                        <td>
+                           <input type="text" id="escolarnino" name="escolarnino" size="10"/> 
+                        </td>
+                        <td>
+                           <input type="text" id="escolarpadres" name="escolarpadres" size="10"/> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">Socializaci&oacute;n (deseo y capacidad de estar bien
+                            con los dem&aacute;s)</th>
+                        <td>
+                           <input type="text" id="socialnino" name="socialnino" size="10"/> 
+                        </td>
+                        <td>
+                           <input type="text" id="socialpadres" name="socialpadres" size="10"/> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">Deseo de abandanor el Programa de abordaje del peso</th>
+                        <td>
+                           <input type="text" id="deseonino" name="deseonino" size="10"/> 
+                        </td>
+                        <td>
+                           <input type="text" id="deseopadres" name="deseopadres" size="10"/> 
+                        </td>
+                    </tr>
+            </table>    
            
+              
+              
           </fieldset>    
              
            <fieldset>   
