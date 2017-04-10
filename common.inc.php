@@ -3,6 +3,10 @@
 require_once ('config.php');
 
 require_once ('classes/Usuarios.class.php');
+require_once ('classes/FichaPiobin.class.php');
+require_once ('classes/PiobinAbandono.class.php');
+require_once ('classes/PiobinCambios.class.php');
+require_once ('classes/PiobinTiempo.class.php');
 
 
 

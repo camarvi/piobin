@@ -9,10 +9,11 @@ CAMBIAR DATOS
 <?php
 
 
-
 require_once ("common.inc.php");
 
 list($listatiempo)= PiobinTiempo::listaTiempo() ;
+list($listaabandono)= PiobinAbandono::listaAbandonos();
+list($listacambios)= PiobinCambios::listaCambios();
    
 //LEO LAS VARIABLES QUE ME PASAN POR GET PARA 
 //OBTENER LOS DATOS DEL PACIENTE

@@ -22,7 +22,9 @@ define("PAGE_SIZE", 5);
 
 //Definicion Tablas BD
 define("TBL_TIEMPO","PIOBIN_TIEMPO");
-
+define("TBL_FICHA","FICHA_PIOBIN");
+define("TBL_ABANDONO","PIOBIN_ABANDONO");
+define("TBL_CAMBIOS","PIOBIN_CAMBIOS");
 
 define("TBL_BDU","FICHERO_BDU");
 
@@ -30,15 +32,15 @@ define("ROOT", $_SERVER['HTTP_HOST']);
 define("RAIZ", "http://" . $_SERVER['HTTP_HOST'] );
 
   
-//consultas sql
+//consultas sql PARA LAS LISTAS
 
 
 
-define("SQL_LISTATIEMPO", "SELECT COD,TIEMPO FROM " . TBL_TIEMPOS  );
+define("SQL_LISTATIEMPO", "SELECT COD,TIEMPO FROM " . TBL_TIEMPOS);
+define("SQL_LISTAABANDONO", "SELECT COD,ABANDONO FROM " . TBL_ABANDONO);
+define("SQL_LISTACAMBIOS", "SELECT COD,CAMBIO FROM " . TBL_CAMBIOS);
 
-
-// Fin consultas tablas sux (consultas rellenar combos)
-
+// Fin consultas Listas
    
   
 
