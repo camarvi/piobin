@@ -20,6 +20,7 @@ class FichaPiobin  extends DataObject {
         "CENTRO"=>"",
         "CNP"=>"",
         "FECHA"=>"",
+        "TIEMPO"=>"",
         "FDIAGNOSTICO"=>"",
         "IMC_DIAGNOSTICO"=>"",
         "DESVIACION_DIAGNOSTICO"=>"",
@@ -78,6 +79,7 @@ class FichaPiobin  extends DataObject {
             $st->bindValue(":CENTRO",$this->data["CENTRO"], PDO::PARAM_STR);
             $st->bindValue(":CNP",$this->data["CNP"], PDO::PARAM_STR);
             $st->bindValue(":FECHA",$this->data["FECHA"], PDO::PARAM_STR);
+            $st->bindValue(":TIEMPO",$this->data["TIEMPO"], PDO::PARAM_INT);
             $st->bindValue(":FDIAGNOSTICO",$this->data["FDIAGNOSTICO"], PDO::PARAM_STR);
             $st->bindValue(":IMC_DIAGNOSTICO",$this->data["IMC_DIAGNOSTICO"], PDO::PARAM_STR);
             $st->bindValue(":DESVIACION_DIAGNOSTICO",$this->data["DESVIACION_DIAGNOSTICO"], PDO::PARAM_STR);

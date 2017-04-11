@@ -458,7 +458,7 @@ if (isset ($_GET['nuhsa'])){
  
     ?>
 <script lang="javascript">
-    alert("PETICION REGISTRADA CORRECTAMENTE")
+    alert("FICHA ALMACAENDADA CORRECTAMENTE")
 </script>
  <?php 
  }
@@ -468,7 +468,7 @@ if (isset ($_GET['nuhsa'])){
     <head>
         <meta charset="UTF-8">
    
-      <title> Peticion Estudio Imagen Patología Mamaria</title>
+      <title> Peticion Estudio Piobin</title>
 <meta name="author" content="carlos" />
 
 
@@ -513,7 +513,11 @@ if (isset ($_GET['nuhsa'])){
     <body>
     
        <form action="index.php" method="post">
-                 
+          <input type="hidden" name="cod" id="cod" value="<?php echo $cod; ?>" />
+          <input type="hidden" name="an" id="an" value="<?php echo $an; ?>" />
+	  <input type="hidden" name="centro" id="centro" value="<?php echo $centro; ?>" />
+	  <input type="hidden" name="cnp" id="cnp" value="<?php echo $cnp; ?>" />
+	     
          
         <fieldset>  
           <div class="datos_personales">
@@ -787,159 +791,46 @@ if (isset ($_GET['nuhsa'])){
                         </td>
                     </tr>
             </table>    
-           
-              
               
           </fieldset>    
              
-           <fieldset>   
-              
-            <div class="colum_personales2_30"> 
-                <label>ENGROSAMIENTO/RETRACCI&Oacute;N CUT&Aacute;NEA</label> 
-            </div>  
-          
-            <div class="colum_personales2_70">      
-              <label>Mama D.</label><input type="checkbox" name="engrod" id="engrod" value="1"/>   
-              <label>Mama I.</label><input type="checkbox" name="engroi" id="engroi" value="1"/>  
-            </div>      
-           </fieldset>     
-            
-           <fieldset>   
-              
-            <div class="colum_personales2_30"> 
-                <label>PIEL NARANJA</label> 
-            </div>  
-          
-            <div class="colum_personales2_70">      
-              <label>Mama D.</label><input type="checkbox" name="pnaranjad" id="pnaranjad" value="1"/>   
-              <label>Mama I.</label><input type="checkbox" name="pnaranjai" id="pnaranjai" value="1"/>  
-            </div>      
-           </fieldset>   
-             
-           <fieldset>   
-              
-            <div class="colum_personales2_30"> 
-                <label>PATOLOG&Iacute;A INFECCIOSO-INFLAMATORIA</label> 
-            </div>  
-          
-            <div class="colum_personales2_70">      
-              <label>Mama D.</label><input type="checkbox" name="patologiad" id="patologiad" value="1"/>   
-              <label>Mama I.</label><input type="checkbox" name="patologiai" id="patologiai" value="1"/>  
-            </div>      
-           </fieldset>    
-           
-           
-           <fieldset>   
-              
-             <div class="datos_personales">
-              <label>TRATAMIENTO EFECTUADO/OBSERVACIONES:</label>
-             </div>
-               <div class="datos_personales">  
-                <input type="text" id="obs" name="obs" size="80"/>
-             
-             </div> 
-           </fieldset>     
-           
-           <fieldset>   
-              
-             <div class="datos_personales">
-                 <label>ANTECEDENTES FAMILIARES DE C&Aacute;NCER DE MAMA:</label>
-             </div>
-               <div class="datos_personales">  
-                <label>NO</label><input type="checkbox" name="antecedentes_no" id="antecedentes_no" value="1"/>
-                <label>MADRE</label><input type="checkbox" name="antecedentes_madre" id="antecedentes_madre" value="1"/>  
-                <label>PADRE</label><input type="checkbox" name="antecedentes_padre" id="antecedentes_padre" value="1"/>  
-                <label>HERMANA</label><input type="checkbox" name="antecedentes_hermana" id="antecedentes_hermana" value="1"/>  
-                <label>HIJA</label><input type="checkbox" name="antecedentes_hija" id="antecedentes_hija" value="1"/>
-                <label>OTROS</label>
-                <input type="text" id="antecedentes_otros" name="antecedentes_otros" size="30"/>
-             </div> 
-           </fieldset>  
-           
-          <fieldset>   
-              
-             <div class="datos_personales">
-                 <label>ANTECEDENTES PERSONALES:</label>
-             </div>
-             <div class="datos_personales">  
-                <label>TSH</label><input type="checkbox" name="ths" id="ths" value="ths"/>
-                <label>Si</label><input type="radio" name="ths_si" value="1"/>
-                <label>No</label><input type="radio" name="ths_si" value="0"/>
-                
-                <label>Fecha Inicio</label>
-                <input type="text" id="ths_finicio" name="ths_finicio" size="10" onblur="valida_fecha(this.value)"/>
-                
-                <label>Fecha Fin</label>
-                <input type="text" id="ths_ffin" name="ths_ffin" size="10" onblur="valida_fecha(this.value)"/>
-               
-             </div> 
-            
-            <div  class="colum_personales2_30">
-                <label>CIRUG&Iacute;A/ BIOPSIA MAMARIA PREVIA:</label>
-            </div>   
-            <div class="colum_personales2_70">
-                <label>SI</label><input type="radio" name="biopsia" value="1"/>  
-                <label>NO</label><input type="radio" name="biopsia" value="0"/> 
-                <label>MD</label><input type="checkbox" name="biopsia_md" id="biopsia_md" value="1"/>  
-                <label>MI</label><input type="checkbox" name="biopsia_mi" id="biopsia_mi" value="1"/>
-                <label>Resultado (Fecha)</label>
-                <input type="text" id="biopsia_fecha" name="biopsia_fecha" size="10" onblur="valida_fecha(this.value)"/>
-               
-            </div>
-           
-            <div  class="colum_personales2_30">
-                <label>PROTESIS MAMARIA:</label>
-            </div>   
-            <div class="colum_personales2_70">
-                <label>SI</label><input type="radio" name="protesis" value="1"/>  
-                <label>NO</label><input type="radio" name="protesis" value="0"/> 
-                <label>MD</label><input type="checkbox" name="protesis_md" id="protesis_md" value="1"/>  
-                <label>MI</label><input type="checkbox" name="protesis_mi" id="protesis_mi" value="1"/>
-           
-            </div>
-              
-            <div  class="colum_personales2_30">
-                <label>ANTECEDENTES C&Aacute;NCER DE MAMA:</label>
-            </div>   
-            <div class="colum_personales2_70">
-                <label>SI</label><input type="radio" name="antcmama" value="1"/>  
-                <label>NO</label><input type="radio" name="antcmama" value="0"/> 
-                <label>MD</label><input type="checkbox" name="antcmama_md" id="antcmama_md" value="1"/>  
-                <label>MI</label><input type="checkbox" name="antcmama_mi" id="antcmama_mi" value="1"/>
-                <label>Fecha</label>
-                <input type="text" id="antcmama_fecha" name="antcmama_fecha" size="10" onblur="valida_fecha(this.value)"/>
-               
-            </div>   
-          
+         <fieldset>  
+           <legend>5) MODIFICACIONES EN LOS PADRES.</legend>
             <div class="datos_personales">
-               
-                <label>Tratamiento:</label>
-                <label>Trat. Quir&uacute;rgico</label><input type="checkbox" name="trat_quir" id="trat_quir" value="1">  
-                <label>Radioterapia</label><input type="checkbox" name="radioterapia" id="radioterapia" value="1"> 
-                <label>Quimioterapia</label><input type="checkbox" name="quimio" id="quimio" value="1">  
-            </div>  
+              <label>Peso de la madre:</label> 
+                <select name="pesomadre" id="centro" name="pesomadre"> 
+                    <option value="0">No cambio</option>
+                    <option value="1">Dismunici&oacute;n</option>
+                </select>  
               
-           <div class="datos_personales">
-                <label>Mamograf&iacute;a previa:</label>
-                <label>SI</label><input type="radio" name="previa" value="1"/> 
-                <label>NO</label><input type="radio" name="previa" value="0"/>  
-                <label>Fecha</label>
-                <input type="text" id="fecha_previa" name="fecha_previa" size="10" onblur="valida_fecha(this.value)"/>
-               
-           </div>
-           <div class="datos_personales">
-                <label>Se ha realizado mamograf&iacute;a en el Programa de Detecci&oacute;n Precoz de C&aacute;ncer de Mama:</label>
-                <label>SI</label><input type="radio" name="pdpcm" value="1"/> 
-                <label>NO</label><input type="radio" name="pdpcm" value="0"/>  
-           </div>   
+              <label>Peso del padre:</label> 
+                <select name="pesopadre" id="centro" name="pesopadre"> 
+                    <option value="0">No cambio</option>
+                    <option value="1">Dismunici&oacute;n</option>
+                </select>  
+              
+              <label>Act. F&iacute;sica madre:</label> 
+                <select name="actividad_madre" id="centro" name="actividad_madre"> 
+                    <option value="0">No cambio</option>
+                    <option value="1">Aumento</option>
+                </select>  
+              
+              <label>Act. F&iacute;sica padre:</label> 
+                <select name="actividad_padre" id="centro" name="actividad_padre"> 
+                    <option value="0">No cambio</option>
+                    <option value="1">Aumento</option>
+                </select>  
+              
+             </div> 
+             <div class="datos_personales">  
+              <label>Refuerzo positivo proporcionado a su hijo/a por los cambios:</label>
+               <select name="refuerzo_pos" id="centro" name="refuerzo_pos"> 
+                    <option value="0">No</option>
+                    <option value="1">Si</option>
+                </select>  
+             </div>
           
-           <div class="datos_personales">
-                <label>Fecha</label>
-                <input type="text" id="fecha_pdpcm" name="fecha_pdpcm" size="10" onblur="valida_fecha(this.value)"/>
-               
-           </div>
-             
-          </fieldset>  
+           </fieldset>         
            
             <button type="submit" id="registar" name="registrar" class="botoncentrado" onClick="window.print()">
                  Registrar
