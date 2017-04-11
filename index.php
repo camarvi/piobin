@@ -21,11 +21,19 @@ list($listacambios)= PiobinCambios::listaCambios();
 if (isset ($_GET['nuhsa'])){
     
     $usuario=Usuarios::getUsuario($_GET['nuhsa']);
-    $nombre_usuario=trim($usuario->getValueEncoded('APE1')) . " " . trim($usuario->getValueEncoded('APE2')) . ", " . trim($usuario->getValueEncoded('NOMBRE'));
     $centro=$_GET['centro'];
-    $fnacimiento=$_GET['fnacimiento'];
+   
     $cnpprofesional=$_GET['cnpprofesional'];
     
+     $fichapiobin=  FichaPiobin::getPiobin($usuario);
+     
+          
+    if (is_null($fichapiobin)) {
+       $cod=0;
+    } else {
+       $cod=$fichapiobin->getValue('COD'); 
+        
+    }
 }
 
 
@@ -40,80 +48,31 @@ if (isset ($_GET['nuhsa'])){
         $cnpprofesional=$_POST['cnp'];
       
      
-        $separar =explode('/',$_POST["nacimiento"]);
+        $separar =explode('/',$_POST["fecha"]);
         $dia=trim($separar[0]);
         $mes=trim($separar[1]);
         $anio=trim($separar[2]);
-        $fnacimientook=$anio . "-" . $mes . "-" . $dia;
+        $fechaok=$anio . "-" . $mes . "-" . $dia;
         
-        $separar1 =explode('/',$_POST["fsolicitud"]);
-        $dia_prueba=trim($separar1[0]);
-        $mes_prueba=trim($separar1[1]);
-        $anio_prueba=trim($separar1[2]);
-        $fsolicitudok=$anio_prueba . "-" . $mes_prueba . "-" . $dia_prueba;
+        if (strlen($_POST["fdiagnostico"])){
+          $separar1 =explode('/',$_POST["fdiagnostico"]);
+          $dia_prueba=trim($separar1[0]);
+          $mes_prueba=trim($separar1[1]);
+          $anio_prueba=trim($separar1[2]);
+          $fdiagnosticook=$anio_prueba . "-" . $mes_prueba . "-" . $dia_prueba;
+        
+        } else {  $fdiagnosticook=""; } 
      
-        if (strlen($_POST["fsintomas"])){
-          $separar2 =explode('/',$_POST["fsintomas"]);
+        
+        if (strlen($_POST["fevaluacion"])){
+          $separar2 =explode('/',$_POST["fevaluacion"]);
           $dia2=trim($separar2[0]);
           $mes2=trim($separar2[1]);
           $anio2=trim($separar2[2]);
-          $fsintomasok=$anio2 . "-" . $mes2 . "-" . $dia2;
+          $fevaluacionsok=$anio2 . "-" . $mes2 . "-" . $dia2;
         
-        }
+        } else { $fevaluacionsok=""; }
         
-        if (strlen($_POST["ths_finicio"])){
-          $separar3 =explode('/',$_POST["ths_finicio"]);
-          $dia3=trim($separar3[0]);
-          $mes3=trim($separar3[1]);
-          $anio3=trim($separar3[2]);
-          $ths_finiciook=$anio3 . "-" . $mes3 . "-" . $dia3;
-        
-        } 
-        
-         if (strlen($_POST["ths_ffin"])){
-          $separar4 =explode('/',$_POST["ths_ffin"]);
-          $dia4=trim($separar4[0]);
-          $mes4=trim($separar4[1]);
-          $anio4=trim($separar4[2]);
-          $ths_ffinok=$anio4 . "-" . $mes4 . "-" . $dia4;
-        
-        }  else {$ths_ffinok="";}
-        
-        if (strlen($_POST["biopsia_fecha"])){
-          $separar5 =explode('/',$_POST["biopsia_fecha"]);
-          $dia5=trim($separar5[0]);
-          $mes5=trim($separar5[1]);
-          $anio5=trim($separar5[2]);
-          $biopsia_fechaok=$anio5 . "-" . $mes5 . "-" . $dia5;
-        
-        }  else {$biopsia_fechaok="";}
-        
-         if (strlen($_POST["antcmama_fecha"])){
-          $separar6 =explode('/',$_POST["antcmama_fecha"]);
-          $dia6=trim($separar6[0]);
-          $mes6=trim($separar6[1]);
-          $anio6=trim($separar6[2]);
-          $antcmama_fechaok=$anio6 . "-" . $mes6 . "-" . $dia6;
-        
-        } else {$antcmama_fechaok="";}
-        
-        if (strlen($_POST["fecha_previa"])){
-          $separar7 =explode('/',$_POST["fecha_previa"]);
-          $dia7=trim($separar7[0]);
-          $mes7=trim($separar7[1]);
-          $anio7=trim($separar7[2]);
-          $fecha_previaok=$anio7 . "-" . $mes7 . "-" . $dia7;
-             
-        } else {$fecha_previaok="";}
-        
-        if (strlen($_POST["fecha_pdpcm"])){
-          $separar8 =explode('/',$_POST["fecha_pdpcm"]);
-          $dia8=trim($separar8[0]);
-          $mes8=trim($separar8[1]);
-          $anio8=trim($separar8[2]);
-          $fecha_pdpcm=$anio8 . "-" . $mes8 . "-" . $dia8;
-        
-        }  else {$fecha_pdpcm="";}
       
         
     if (isset ($_POST['nuhsa'])) {  
@@ -121,344 +80,64 @@ if (isset ($_GET['nuhsa'])){
         
     }  else {$nuhsa=""; }
       
-    if (isset ($_POST['tlf'])) {  
-        $tlf=$_POST['tlf'];
-        
-    }  else {$tlf=""; }
     
-    if (isset ($_POST['tlf2'])) {  
-        $tlf=$_POST['tlf2'];
-        
-    }  else {$tlf2=""; }
     
-    if (isset ($_POST['cnp'])) {  
-        $cnp=$_POST['cnp'];
+ $fichapiobinusuario=new Peticion(array(
         
-    }  else {$cnp=""; }
-    
-    if (isset ($_POST['nodulo'])) {  
-        $palpable=$_POST['nodulo'];
-        
-    }  else {$palpable=""; }
-    
-    if (isset ($_POST['cm_nodulo'])) {  
-        $cm_nodulo=$_POST['cm_nodulo'];
-        
-    }  else {$cm_nodulo=0; }
-     
-    if (isset ($_POST['mamad'])) {  
-        $mamad=$_POST['mamad'];
-        
-    }  else {$mamad=0; }
-    
-    if (isset ($_POST['mamai'])) {  
-        $mamai=$_POST['mamai'];
-        
-    }  else {$mamai=0; }
-    
-    if (isset ($_POST['cse'])) {  
-        $cse=$_POST['cse'];
-        
-    }  else {$cse=0; }
-    
-    if (isset ($_POST['csi'])) {  
-        $csi=$_POST['csi'];
-        
-    }  else {$csi=0; }
-    
-    if (isset ($_POST['cid'])) {  
-        $cid=$_POST['cid'];
-        
-    }  else {$cid=0; }
-    
-    if (isset ($_POST['cii'])) {  
-        $cii=$_POST['cii'];
-        
-    }  else {$cii=0; }
-    
-    if (isset ($_POST['retroareolar'])) {  
-        $retroareolar=$_POST['retroareolar'];
-        
-    }  else {$retroareolar=0; }
-    
-    if (isset ($_POST['retraccion_mamad'])) {  
-        $retraccion_mamad=$_POST['retraccion_mamad'];
-        
-    }  else {$retraccion_mamad=0; }
-    
-    if (isset ($_POST['retraccion_mamai'])) {  
-        $retraccion_mamai=$_POST['retraccion_mamai'];
-        
-    }  else {$retraccion_mamai=0; }
-    
-    if (isset ($_POST['retraccion_reciente'])) {  
-        $retraccion_recient=$_POST['retraccion_reciente'];
-        
-    }  else {$retraccion_recient=0; }
-    
-    if (isset ($_POST['ulceraciond'])) {  
-        $ulceraciond=$_POST['ulceraciond'];
-        
-    }  else {$ulceraciond=0; }
-    
-    if (isset ($_POST['ulceracioni'])) {  
-        $ulceracioni=$_POST['ulceracioni'];
-        
-    }  else {$ulceracioni=0; }
-    
-    if (isset ($_POST['secreciond'])) {  
-        $secreciond=$_POST['secreciond'];
-        
-    }  else {$secreciond=0; }
-    
-    if (isset ($_POST['secrecioni'])) {  
-        $secrecioni=$_POST['secrecioni'];
-        
-    }  else {$secrecioni=0; }
-    
-    if (isset ($_POST['unilateral'])) {  
-        $unilateral=$_POST['unilateral'];
-        
-    }  else {$unilateral=0; }
-    
-    if (isset ($_POST['uniporica'])) {  
-        $uniporica=$_POST['uniporica'];
-        
-    }  else {$uniporica=0; }
-    
-    if (isset ($_POST['espontanea'])) {  
-        $espontanea=$_POST['espontanea'];
-        
-    }  else {$espontanea=0; }
-    
-    if (isset ($_POST['serohematica'])) {  
-        $serohematica=$_POST['serohematica'];
-        
-    }  else {$serohematica=0; }
-    
-    if (isset ($_POST['engrod'])) {  
-        $engrod=$_POST['engrod'];
-        
-    }  else {$engrod=0; }
-    
-    if (isset ($_POST['engroi'])) {  
-        $engroi=$_POST['engroi'];
-        
-    }  else {$engroi=0; }
-    
-    if (isset ($_POST['pnaranjad'])) {  
-        $pnaranjad=$_POST['pnaranjad'];
-        
-    }  else {$pnaranjad=0; }
-   
-    if (isset ($_POST['pnaranjai'])) {  
-        $pnaranjai=$_POST['pnaranjai'];
-        
-    }  else {$pnaranjai=0; }
-    
-    if (isset ($_POST['patologiad'])) {  
-        $patologiad=$_POST['patologiad'];
-        
-    }  else {$patologiad=0; }
-    
-    if (isset ($_POST['patologiai'])) {  
-        $patologiai=$_POST['patologiai'];
-        
-    }  else {$patologiai=0; }
-    
-    if (isset ($_POST['obs'])) { 
-        $obs=  html_entity_decode($_POST['obs']) ;
-        
-    }  else {$obs=""; }
-    
-    if (isset ($_POST['antecedentes_no'])) { 
-        $antecedentes_no=$_POST['antecedentes_no'] ;
-        
-    }  else {$antecedentes_no=0; }
-    
-    if (isset ($_POST['antecedentes_madre'])) { 
-        $antecedentes_madre=$_POST['antecedentes_madre'] ;
-        
-    }  else {$antecedentes_madre=0; }
-    
-    if (isset ($_POST['antecedentes_padre'])) { 
-        $antecedentes_padre=$_POST['antecedentes_padre'] ;
-        
-    }  else {$antecedentes_padre=0; }
-    
-    if (isset ($_POST['antecedentes_hermana'])) { 
-        $antecedentes_hermana=$_POST['antecedentes_hermana'] ;
-        
-    }  else {$antecedentes_hermana=0; }
-    
-     if (isset ($_POST['antecedentes_hija'])) { 
-        $antecedentes_hija=$_POST['antecedentes_hija'] ;
-        
-    }  else {$antecedentes_hija=0; }
-    
-    if (isset ($_POST['antecedentes_otros'])) { 
-        $antecedentes_otros=$_POST['antecedentes_otros'] ;
-        
-    }  else {$antecedentes_otros=""; }
-    
-    if (isset ($_POST['ths'])) { 
-        $ths=1 ;
-        
-    }  else {$ths=0; }
-    
-    if (isset ($_POST['ths_si'])) { 
-        $ths_si=1 ;    
-        
-    }  else {$ths_si=0; }
-    
-    if (isset ($_POST['biopsia'])) { 
-        $biopsia=$_POST['biopsia'] ;
-        
-    }  else {$biopsia=0; }
-    
-    if (isset ($_POST['biopsia_md'])) { 
-        $biopsia_md=$_POST['biopsia_md'] ;
-        
-    }  else {$biopsia_md=0; }
-    
-    if (isset ($_POST['biopsia_mi'])) { 
-        $biopsia_mi=$_POST['biopsia_mi'] ;
-        
-    }  else {$biopsia_mi=0; }
-    
-    if (isset ($_POST['protesis'])) { 
-        $protesis=$_POST['protesis'] ;
-        
-    }  else {$protesis=0; }
-    
-    if (isset ($_POST['protesis_md'])) { 
-        $protesis_md=$_POST['protesis_md'] ;
-        
-    }  else {$protesis_md=0; }
-    
-    if (isset ($_POST['protesis_mi'])) { 
-        $protesis_mi=$_POST['protesis_mi'] ;
-        
-    }  else {$protesis_mi=0; }
-    
-    if (isset ($_POST['antcmama'])) { 
-        $antcmama=$_POST['antcmama'] ;
-        
-    }  else {$antcmama=0; }
-    
-    if (isset ($_POST['antcmama_md'])) { 
-        $antcmama_md=$_POST['antcmama_md'] ;
-        
-    }  else {$antcmama_md=0; }
-    
-    if (isset ($_POST['antcmama_mi'])) { 
-        $antcmama_mi=$_POST['antcmama_mi'] ;
-        
-    }  else {$antcmama_mi=0; }
-    
-    if (isset ($_POST['trat_quir'])) { 
-        $trat_quir=$_POST['trat_quir'] ;
-        
-    }  else {$trat_quir=0; }
-    
-    if (isset ($_POST['radioterapia'])) { 
-        $radioterapia=$_POST['radioterapia'] ;
-        
-    }  else {$radioterapia=0; }
-        
-    if (isset ($_POST['quimio'])) { 
-        $quimio=$_POST['quimio'] ;
-        
-    }  else {$quimio=0; }
-    
-    if (isset ($_POST['previa'])) { 
-        $previa=$_POST['previa'] ;
-        
-    }  else {$previa=0; }
-    
-    if (isset ($_POST['pdpcm'])) { 
-        $pdpcm=$_POST['pdpcm'] ;
-        
-    }  else {$pdpcm=0; }
-    
- $nuevapeticion=new Peticion(array(
-        "ESTADO_SOLICITUD"=>"0",
-        "AN"=>$_POST["nuhsa"],
-        "NOMBRE_PACIENTE"=>html_entity_decode($_POST["usuario"]),
-        "FNACIMIENTO"=>($fnacimientook) ,
-        "TLF"=>$tlf,
-        "TLF2"=>$tlf2,
-        "CNP"=>$cnp,
-        "CENTRO"=>$_POST["centro"],
-        "FSOLICITUD"=>$fsolicitudok,
-        "FSINTOMAS"=>$fsintomasok,
-        "PALPABLE"=>$palpable,
-     
-        "CM_NODULO"=>$cm_nodulo,
-        "MAMAD"=>$mamad,
-        "MAMAI"=>$mamai,
-        "CSE"=>$cse,
-        "CSI"=>$csi,
-        "CID"=>$cid,
-        "CII"=>$cii,
-        "RETROAREOLAR"=>$retroareolar,              
-        "RETRACCION_MAMAD"=>$retraccion_mamad, 
-        "RETRACCION_MAMAI"=>$retraccion_mamai, 
-     
-        "RETRACCION_RECIENT"=>$retraccion_recient,   
-        "ULCERACIOND"=>$ulceraciond, 
-        "ULCERACIONI"=>$ulceracioni, 
-        "SECRECIOND"=>$secreciond, 
-        "SECRECIONI"=>$secrecioni, 
-        "UNILATERAL"=>$unilateral, 
-        "UNIPORICA"=>$uniporica, 
-        "ESPONTANEA"=>$espontanea, 
-        "SEROHEMATICA"=>$serohematica, 
-        "ENGROD"=>$engrod, 
-     
-        "ENGROI"=>$engroi, 
-        "PNARANJAD"=>$pnaranjad, 
-        "PNARANJAI"=>$pnaranjai,
-        "PATOLOGIAD"=>$patologiad,
-        "PATOLOGIAI"=>$patologiai,
-        "OBS"=>html_entity_decode($_POST["obs"]),
-        "ANTECEDENTES_NO"=>$antecedentes_no,
-        "ANTECEDENTES_MADRE"=>$antecedentes_madre,
-        "ANTECEDENTES_PADRE"=>$antecedentes_padre,
-        "ANTECEDENTES_HERMANA"=>$antecedentes_hermana,
-        "ANTECEDENTES_HIJA"=>$antecedentes_hija,
-        "ANTECEDENTES_OTROS"=>html_entity_decode($_POST["antecedentes_otros"]),
-        "THS"=>$ths,
-        "THS_SI"=>$ths_si,
-        "THS_FINICIO"=>$ths_finiciook,
-        "THS_FFIN"=>$ths_ffinok,
-        "BIOPSIA"=>$biopsia,
-        "BIOPSIA_MD"=>$biopsia_md,
-        "BIOPSIA_MI"=>$biopsia_mi,
-        "BIOPSIA_FECHA"=>$biopsia_fechaok,
-        "PROTESIS"=>$protesis,
-     
-        "PROTESIS_MD"=>$protesis_md,
-        "PROTESIS_MI"=>$protesis_mi,
-        "ANTCMAMA"=>$antcmama,
-        "ANTCMAMA_MD"=>$antcmama_md,
-        "ANTCMAMA_MI"=>$antcmama_mi,
-        "ANTCMAMA_FECHA"=>$antcmama_fechaok,
-        "TRAT_QUIR"=>$trat_quir,
-        "RADIOTERAPIA"=>$radioterapia,
-        "QUIMIO"=>$quimio,
-        "PREVIA"=>$previa,
-     
-        "FECHA_PREVIA"=>$fecha_previaok,
-        "PDPCM"=>$pdpcm, 
-        "FECHA_PDPCM"=>$fecha_pdpcm
-                    ));
+        "COD"=>$cod,
+        "AN"=>$an,
+        "CENTRO"=>$centro,
+        "CNP"=>$centro,
+        "FECHA"=>$fechaok,
+        "TIEMPO"=>$_POST["tiempo"],
+        "FDIAGNOSTICO"=>$fdiagnosticook,
+        "IMC_DIAGNOSTICO"=>$_POST["imc_diagnostico"],
+        "DESVIACION_DIAGNOSTICO"=>$_POST["desviacion_diagnostico"],
+        "FEVALUACION"=>$fevaluacionsok,
+        "IMC_EVALUACION"=>$_POST["imc_evaluacion"],
+        "DESVIACION_EVALUACION"=>$_POST["desviacion_evaluacion"],
+        "FRUTANINO"=>$_POST["frutanino"],
+        "FRUTAPADRES"=>$_POST["frutapadres"],
+        "VERDURANINO"=>$_POST["verduranino"],
+        "VERDURAPADRES"=>$_POST["verdurapadres"],
+        "HORASNINO"=>$_POST["horasnino"],
+        "HORASPADRES"=>$_POST["horaspadres"],
+        "GRASASNINO"=>$_POST["grasasnino"],
+        "GRASASPADRES"=>$_POST["grasaspadres"],
+        "DULCESNINO"=>$_POST["dulcesnino"],
+        "DULCESPADRES"=>$_POST["dulvespadres"],
+        "BEBIDASNINO"=>$_POST["bebidasnino"],
+        "BEBIDASPADRES"=>$_POST["bebidaspadres"],
+        "DEPORTENINO"=>$_POST["deportenino"],
+        "DEPORTEPADRES"=>$_POST["deportepadres"],
+        "JUEGONINO"=>$_POST["juegonino"],
+        "JUEGOPADRES"=>$_POST["juegopadres"],
+        "MOVIMIENTONINO"=>$_POST["movimientonino"],
+        "MOVIMIENTOPADRES"=>$_POST["movimientopadres"],
+        "SEDENTARIANINO"=>$_POST["sedentarianino"],
+        "SEDENTARIAPADRES"=>$_POST["sedentariapadres"],
+        "HUMORNINO"=>$_POST["humornino"],
+        "HUMORPADRES"=>$_POST["humorpadres"],
+        "ESCOLARNINO"=>$_POST["escolarnino"],
+        "ESCOLARPADRES"=>$_POST["escolarpadres"],
+        "SOCIALNINO"=>$_POST["socialnino"],
+        "SOCIALPADRES"=>$_POST["socialpadres"],
+        "DESEONINO"=>$_POST["deseonino"],
+        "DESEOPADRES"=>$_POST["deseopadres"],
+        "PESOMADRE"=>$_POST["pesomadre"],
+        "PESOPADRE"=>$_POST["pesopadre"],
+        "ACTIVIDAD_MADRE"=>$_POST["actividad_madre"],
+        "ACTIVIDAD_PADRE"=>$_POST["actividad_padre"],
+        "REFUERZO_POS"=>$_POST["refuerzo_pos"],
+        "CERRADO"=>"",
+        "FECHA_FIN"=>""
+     ));
     $nuevapeticion->nueva_peticion();
           
  
     ?>
 <script lang="javascript">
-    alert("FICHA ALMACAENDADA CORRECTAMENTE")
+    alert("FICHA ALMACENADA CORRECTAMENTE")
 </script>
  <?php 
  }
@@ -520,9 +199,15 @@ if (isset ($_GET['nuhsa'])){
 	     
          
         <fieldset>  
-          <div class="datos_personales">
+         
+            <div class="datos_personales">
+               <label>FECHA:</label> 
+               <input type="text" id="fecha" name="fecha" size="10" onblur="valida_fecha(this.value)" value="<?php echo date('d/m/Y'); ?>"/> 
+            </div>
+            
+            <div class="datos_personales">
             <label>Tiempo transcurrdo desde el inicio de la intervencion:</label> 
-            <select name="tiempo" id="centro" name="tiempo"> 
+            <select name="tiempo" id="tiempo"> 
                 <?php
                  foreach ($listatiempo as $ltiempo) {
                 ?>
@@ -591,70 +276,192 @@ if (isset ($_GET['nuhsa'])){
                     <tr>
                         <th scope="row">+ Fruta fresca cruda o cocida</th>
                         <td>
-                           <input type="text" id="frutanino" name="frutanino" size="10"/> 
+                           <select name="frutanino" id="frutanino"> 
+                           <?php
+                             for ($i=0;$i<11;$i++) {
+                                 ?>
+                                 <option value="<?php echo $i;?>">
+                                    <?php echo $i;?>
+                                 </option>
+                              <?php
+                                  }     
+                               ?>
+                            </select>     
                         </td>
                         <td>
-                           <input type="text" id="frutapadres" name="frutapadres" size="10"/> 
+                           <select name="frutapadres" id="frutapadres"> 
+                           <?php
+                             for ($i=0;$i<11;$i++) {
+                                 ?>
+                                 <option value="<?php echo $i;?>">
+                                    <?php echo $i;?>
+                                 </option>
+                              <?php
+                                  }     
+                               ?>
+                            </select>     
                         </td>
                     </tr>
                     
                     <tr>
                         <th scope="row">+ Verdura de temporada con pocas grasas</th>
                        <td>
-                           <input type="text" id="verduranino" name="verduranino" size="10"/> 
+                           <select name="verduranino" id="verduranino"> 
+                           <?php
+                             for ($i=0;$i<11;$i++) {
+                                 ?>
+                                 <option value="<?php echo $i;?>">
+                                    <?php echo $i;?>
+                                 </option>
+                              <?php
+                                  }     
+                               ?>
+                            </select>     
+                      
                         </td>
                         <td>
-                           <input type="text" id="verdurapadres" name="verdurapadres" size="10"/> 
+                          <select name="verdurapadres" id="verdurapadres"> 
+                           <?php
+                             for ($i=0;$i<11;$i++) {
+                                 ?>
+                                 <option value="<?php echo $i;?>">
+                                    <?php echo $i;?>
+                                 </option>
+                              <?php
+                                  }     
+                               ?>
+                            </select>     
                         </td>
                     </tr>
                     
                     <tr>
                         <th scope="row">- Comer entrehoras (snacks,dulces,etc)</th>
                        <td>
-                           <input type="text" id="horasnino" name="horasnino" size="10"/> 
+                          <select name="horasnino" id="horasnino"> 
+                           <?php
+                             for ($i=0;$i<11;$i++) {
+                                 ?>
+                                 <option value="<?php echo $i;?>">
+                                    <?php echo $i;?>
+                                 </option>
+                              <?php
+                                  }     
+                               ?>
+                           </select>     
+                         
                         </td>
                         <td>
-                           <input type="text" id="horaspadres" name="horaspadres" size="10"/> 
+                           <select name="horaspadres" id="horaspadres"> 
+                           <?php
+                             for ($i=0;$i<11;$i++) {
+                                 ?>
+                                 <option value="<?php echo $i;?>">
+                                    <?php echo $i;?>
+                                 </option>
+                              <?php
+                                  }     
+                               ?>
+                           </select>      
                         </td>
                     </tr>
                     
                     <tr>
                         <th scope="row">- Grasas (mayonesa,nocilla,nata)</th>
                        <td>
-                           <input type="text" id="grasasnino" name="grasasnino" size="10"/> 
+                         <select name="grasasnino" id="grasasnino"> 
+                           <?php
+                             for ($i=0;$i<11;$i++) {
+                                 ?>
+                                 <option value="<?php echo $i;?>">
+                                    <?php echo $i;?>
+                                 </option>
+                              <?php
+                                  }     
+                               ?>
+                           </select>      
                         </td>
                         <td>
-                           <input type="text" id="grasaspadres" name="grasaspadres" size="10"/> 
+                          <select name="grasaspadres" id="grasaspadres"> 
+                           <?php
+                             for ($i=0;$i<11;$i++) {
+                                 ?>
+                                 <option value="<?php echo $i;?>">
+                                    <?php echo $i;?>
+                                 </option>
+                              <?php
+                                  }     
+                               ?>
+                           </select>       
                         </td>
                     </tr>
                     
                     <tr>
                         <th scope="row">- Dulces (bolleria, etc)</th>
                        <td>
-                           <input type="text" id="dulcesnino" name="dulcesnino" size="10"/> 
+                          <select name="dulcesnino" id="dulcesnino"> 
+                           <?php
+                             for ($i=0;$i<11;$i++) {
+                                 ?>
+                                 <option value="<?php echo $i;?>">
+                                    <?php echo $i;?>
+                                 </option>
+                              <?php
+                                  }     
+                               ?>
+                           </select>
                         </td>
                         <td>
-                           <input type="text" id="dulcespadres" name="dulcespadres" size="10"/> 
+                          <select name="dulcespadres" id="dulcespadres"> 
+                           <?php
+                             for ($i=0;$i<11;$i++) {
+                                 ?>
+                                 <option value="<?php echo $i;?>">
+                                    <?php echo $i;?>
+                                 </option>
+                              <?php
+                                  }     
+                               ?>
+                           </select> 
                         </td>
                     </tr>
                     
                     <tr>
                         <th scope="row">- Bebidas dulces (Refrescos, batidos, etc)</th>
                        <td>
-                           <input type="text" id="bebidasnino" name="bebidasnino" size="10"/> 
+                          <select name="bebidasnino" id="bebidasnino"> 
+                           <?php
+                             for ($i=0;$i<11;$i++) {
+                                 ?>
+                                 <option value="<?php echo $i;?>">
+                                    <?php echo $i;?>
+                                 </option>
+                              <?php
+                                  }     
+                               ?>
+                           </select> 
                         </td>
                         <td>
-                           <input type="text" id="bebidaspadres" name="bebidaspadres" size="10"/> 
+                          <select name="bebidaspadres" id="bebidaspadres"> 
+                           <?php
+                             for ($i=0;$i<11;$i++) {
+                                 ?>
+                                 <option value="<?php echo $i;?>">
+                                    <?php echo $i;?>
+                                 </option>
+                              <?php
+                                  }     
+                               ?>
+                           </select>   
                         </td>
                     </tr>
                     
                     <tr>
                         <th scope="row">Valoraci&oacute;n Total</th>
                        <td>
-                           <input type="text" id="totalnino" name="totalnino" size="10"/> 
+                           <input type="text" id="totalnino" name="totalnino" size="10" readonly="readonly"/> 
                         </td>
                         <td>
-                           <input type="text" id="totalpadres" name="totalpadres" size="10"/> 
+                            <input type="text" id="totalpadres" name="totalpadres" size="10" readonly="readonly"/> 
                         </td>
                     </tr>
                     
@@ -681,49 +488,133 @@ if (isset ($_GET['nuhsa'])){
                     <tr>
                         <th scope="row">+ Actividad deportiva organizada</th>
                         <td>
-                           <input type="text" id="deportenino" name="deportenino" size="10"/> 
+                          <select name="deportenino" id="deportenino"> 
+                           <?php
+                             for ($i=0;$i<11;$i++) {
+                                 ?>
+                                 <option value="<?php echo $i;?>">
+                                    <?php echo $i;?>
+                                 </option>
+                              <?php
+                                  }     
+                               ?>
+                           </select>     
                         </td>
                         <td>
-                           <input type="text" id="deportepadres" name="deportepadres" size="10"/> 
+                          <select name="deportepadres" id="deportepadres"> 
+                           <?php
+                             for ($i=0;$i<11;$i++) {
+                                 ?>
+                                 <option value="<?php echo $i;?>">
+                                    <?php echo $i;?>
+                                 </option>
+                              <?php
+                                  }     
+                               ?>
+                           </select>      
                         </td>
                     </tr>
                     
                     <tr>
                         <th scope="row">+ Juego espontaneo activo</th>
                         <td>
-                           <input type="text" id="juegonino" name="juegonino" size="10"/> 
+                          <select name="juegonino" id="juegonino"> 
+                           <?php
+                             for ($i=0;$i<11;$i++) {
+                                 ?>
+                                 <option value="<?php echo $i;?>">
+                                    <?php echo $i;?>
+                                 </option>
+                              <?php
+                                  }     
+                               ?>
+                           </select>       
+                       
                         </td>
                         <td>
-                           <input type="text" id="juegopadres" name="juegopadres" size="10"/> 
+                          <select name="juegopadres" id="juegopadres"> 
+                           <?php
+                             for ($i=0;$i<11;$i++) {
+                                 ?>
+                                 <option value="<?php echo $i;?>">
+                                    <?php echo $i;?>
+                                 </option>
+                              <?php
+                                  }     
+                               ?>
+                           </select>    
+                         
                         </td>
                     </tr>
                     
                     <tr>
                         <th scope="row">+ Movimiento en la vida cotidiana</th>
                         <td>
-                           <input type="text" id="movimientonino" name="movimientonino" size="10"/> 
+                          <select name="movimientonino" id="movimientonino"> 
+                           <?php
+                             for ($i=0;$i<11;$i++) {
+                                 ?>
+                                 <option value="<?php echo $i;?>">
+                                    <?php echo $i;?>
+                                 </option>
+                              <?php
+                                  }     
+                               ?>
+                           </select>      
+                        
                         </td>
                         <td>
-                           <input type="text" id="movimientopadres" name="movimientopadres" size="10"/> 
+                           <select name="movimientopadres" id="movimientopadres"> 
+                           <?php
+                             for ($i=0;$i<11;$i++) {
+                                 ?>
+                                 <option value="<?php echo $i;?>">
+                                    <?php echo $i;?>
+                                 </option>
+                              <?php
+                                  }     
+                               ?>
+                           </select>       
                         </td>
                     </tr>
                     <tr>
-                            <th scope="row">- Actividad sedentaria (TV, PC, etc)</th>
+                        <th scope="row">- Actividad sedentaria (TV, PC, etc)</th>
                         <td>
-                           <input type="text" id="sedentarianino" name="sedentarianino" size="10"/> 
+                           <select name="sedentarianino" id="sedentarianino"> 
+                           <?php
+                             for ($i=0;$i<11;$i++) {
+                                 ?>
+                                 <option value="<?php echo $i;?>">
+                                    <?php echo $i;?>
+                                 </option>
+                              <?php
+                                  }     
+                               ?>
+                           </select>        
                         </td>
                         <td>
-                           <input type="text" id="sedentariapadres" name="sedentariapadres" size="10"/> 
+                          <select name="sedentariapadres" id="sedentariapadres"> 
+                           <?php
+                             for ($i=0;$i<11;$i++) {
+                                 ?>
+                                 <option value="<?php echo $i;?>">
+                                    <?php echo $i;?>
+                                 </option>
+                              <?php
+                                  }     
+                               ?>
+                           </select>        
+                         
                         </td>
                     </tr>
           
                     <tr>
                         <th scope="row">Valoraci&oacute;n Total</th>
                        <td>
-                           <input type="text" id="totalfisicanino" name="totalfisicanino" size="10"/> 
+                           <input type="text" id="totalfisicanino" name="totalfisicanino" size="10" readonly="readonly"/> 
                         </td>
                         <td>
-                           <input type="text" id="totalfisicapadres" name="totalfisicapadres" size="10"/> 
+                           <input type="text" id="totalfisicapadres" name="totalfisicapadres" size="10" readonly="readonly"/> 
                         </td>
                     </tr>
                     

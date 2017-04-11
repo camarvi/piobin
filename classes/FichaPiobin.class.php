@@ -67,12 +67,11 @@ class FichaPiobin  extends DataObject {
     //lista de categorias por orden alfabetico
 
   
-     public function nueva_ficha() {
+  public function nueva_ficha() {
 
         $conn=parent::connect();
-        $sql=SQL_INSERTA_FICHA;
+        $sql=SQL_INSERTA_PIOBIN;
 
-        
         try {
             $st=$conn->prepare($sql);
             $st->bindValue(":AN",$this->data["AN"], PDO::PARAM_STR);
@@ -136,15 +135,15 @@ class FichaPiobin  extends DataObject {
 
     }
      
-       
-    
+         
   public function  modifica_ficha() {
 
         $conn=parent::connect();
-        $sql=SQL_MODIFICA_FICHA;
+        $sql=SQL_MODIFICA_PIOBIN;
            
         try {
             $st=$conn->prepare($sql);
+            $st->bindValue(":COD",$this->data["COD"], PDO::PARAM_STR);
             $st->bindValue(":FDIAGNOSTICO",$this->data["FDIAGNOSTICO"], PDO::PARAM_STR);
             $st->bindValue(":IMC_DIAGNOSTICO",$this->data["IMC_DIAGNOSTICO"], PDO::PARAM_STR);
             $st->bindValue(":DESVIACION_DIAGNOSTICO",$this->data["DESVIACION_DIAGNOSTICO"], PDO::PARAM_STR);
@@ -195,7 +194,27 @@ class FichaPiobin  extends DataObject {
         }
 
     }   
-       
+    
+  public static function getPiobin($an) {
+
+        $conn=parent::connect();
+        $sql=SQL_BUSCA_PIOBIN;
+        
+        try {
+            $st=$conn->prepare($sql);
+            $st->bindValue(":AN",$an,PDO::PARAM_STR);
+            $st->execute();
+            $row=$st->fetch();
+            parent::disconnect($conn);
+            if ($row) return new FichaPiobin($row);
+
+        } catch (PDOException $e) {
+            parent::disconnect($conn);
+            die("Query Failed :" . $e->getMessage());
+        }
+
+    }   
+   
    
 }
 ?>
