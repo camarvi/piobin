@@ -24,7 +24,7 @@ class PiobinTiempo  extends DataObject {
     public static function listaTiempo() {
 
         $conn=parent::connect();
-        $sql=SQL_LISTACENTROS;
+        $sql=SQL_LISTATIEMPO;
    
    
         try {
@@ -32,19 +32,19 @@ class PiobinTiempo  extends DataObject {
            
             
             $st->execute();
-             $lcentros=array();
+             $ltiempos=array();
                foreach ($st->fetchAll() as $row) {
-                   $lcentros[]=new Centros($row);
+                   $ltiempos[]=new PiobinTiempo($row);
                }
 
                parent::disconnect($conn);
-               return array($lcentros);
+               return array($ltiempos);
             } catch (PDOException $e) {
                 parent::disconnect($conn);
                 die("Query failed: " . $e->getMessage());
             }
 
-
+       
 
     }
 
