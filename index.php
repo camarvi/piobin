@@ -22,10 +22,11 @@ if (isset ($_GET['nuhsa'])){
     
     $usuario=Usuarios::getUsuario($_GET['nuhsa']);
     $centro=$_GET['centro'];
+    $an=$usuario->getValue('NUHSA');
    
     $cnpprofesional=$_GET['cnpprofesional'];
     
-     $fichapiobin=  FichaPiobin::getPiobin($usuario);
+     $fichapiobin=  FichaPiobin::getPiobin($an);
      
           
     if (is_null($fichapiobin)) {
@@ -153,7 +154,7 @@ if (isset ($_GET['nuhsa'])){
 
 
 
- <link href="estilos.css" rel="stylesheet" type="text/css"/>
+ <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
 
  
  <script type="text/javascript" >
@@ -211,7 +212,7 @@ if (isset ($_GET['nuhsa'])){
                 <?php
                  foreach ($listatiempo as $ltiempo) {
                 ?>
-                   <option value="<?php echo $ltiempo->getValueEncoded('COD')?>" selected="selected">
+                   <option value="<?php echo $ltiempo->getValueEncoded('COD')?>">
                    <?php echo (($ltiempo->getValueEncoded('TIEMPO')))?></option>
                 <?php
                   }     
@@ -224,7 +225,7 @@ if (isset ($_GET['nuhsa'])){
           <fieldset>  
             <legend>1) VALORACI&Oacute;N DEL IMC:</legend>
             <div class="datos_personales">
-                <table>
+                <table class="tablaentrada">
                     <tr>
                         <th></th>
                         <th scope="col">Fecha</th>
@@ -244,7 +245,7 @@ if (isset ($_GET['nuhsa'])){
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row">Evaluaci&&oacute;n</th>
+                        <th scope="row">Evaluaci&oacute;n</th>
                         <td>
                            <input type="text" id="fevaluacion" name="fevaluacion" size="10" onblur="valida_fecha(this.value)" value="<?php echo date('d/m/Y'); ?>"/> 
                         </td>
@@ -266,7 +267,7 @@ if (isset ($_GET['nuhsa'])){
               <legend>2) CAMBIOS DE LA ALIMENTACI&Oacute;N (Da una puntuaci&oacute;n de 
                   0 a 10 a tu cambio)</legend> 
           
-            <table>
+            <table class="tablaentrada">
                     <tr>
                         <th scope="col">ALIMENTACION SANA</th>
                         <th scope="col">Valoraci&oacute;n ni&ntilde;o*</th>
@@ -478,7 +479,7 @@ if (isset ($_GET['nuhsa'])){
             <legend>3) CAMBIOS DE LA ACTIVIDAD F&Iacute;SICA (Da una puntuaci&oacute;n de 
                   0 a 10 a tu cambio)</legend> 
           
-            <table>
+            <table class="tablaentrada">
                     <tr>
                         <th scope="col">ACTIVIDAD F&Iacute;SICA</th>
                         <th scope="col">Valoraci&oacute;n ni&ntilde;o*</th>
@@ -634,7 +635,7 @@ if (isset ($_GET['nuhsa'])){
                   parece m&aacute;s adecuada.
               </legend> 
           
-            <table>
+            <table class="tablaentrada">
                     <tr>
                         <th scope="col">CALIDAD DE VIDA</th>
                         <th scope="col">Valoraci&oacute;n ni&ntilde;o*</th>
@@ -644,20 +645,59 @@ if (isset ($_GET['nuhsa'])){
                     <tr>
                         <th scope="row">Cambio de humor(serenidad,enfado,etc)</th>
                         <td>
-                           <input type="text" id="humornino" name="humornino" size="10"/> 
+                          <select name="humornino" id="humornino"> 
+                            <?php
+                             foreach ($listacambios as $lcambio) {
+                            ?>
+                              <option value="<?php echo $lcambio->getValueEncoded('COD')?>" selected="selected">
+                              <?php echo (($lcambio->getValueEncoded('CAMBIO')))?></option>
+                            <?php
+                                 }     
+                                ?>
+                          </select>    
                         </td>
                         <td>
-                           <input type="text" id="humorpadres" name="humorpadres" size="10"/> 
+                           <select name="humorpadres" id="humorpadres"> 
+                            <?php
+                             foreach ($listacambios as $lcambio) {
+                            ?>
+                              <option value="<?php echo $lcambio->getValueEncoded('COD')?>" selected="selected">
+                              <?php echo (($lcambio->getValueEncoded('CAMBIO')))?></option>
+                            <?php
+                                 }     
+                                ?>
+                          </select>     
+                    
                         </td>
                     </tr>
                     
                     <tr>
                         <th scope="row">Rendimiento escolar</th>
                         <td>
-                           <input type="text" id="escolarnino" name="escolarnino" size="10"/> 
+                          <select name="escolarnino" id="escolarnino"> 
+                            <?php
+                             foreach ($listacambios as $lcambio) {
+                            ?>
+                              <option value="<?php echo $lcambio->getValueEncoded('COD')?>" selected="selected">
+                              <?php echo (($lcambio->getValueEncoded('CAMBIO')))?></option>
+                            <?php
+                                 }     
+                                ?>
+                          </select>      
+                         
                         </td>
                         <td>
-                           <input type="text" id="escolarpadres" name="escolarpadres" size="10"/> 
+                           <select name="escolarpadres" id="escolarpadres"> 
+                            <?php
+                             foreach ($listacambios as $lcambio) {
+                            ?>
+                              <option value="<?php echo $lcambio->getValueEncoded('COD')?>" selected="selected">
+                              <?php echo (($lcambio->getValueEncoded('CAMBIO')))?></option>
+                            <?php
+                                 }     
+                                ?>
+                          </select>     
+                         
                         </td>
                     </tr>
                     
@@ -665,20 +705,60 @@ if (isset ($_GET['nuhsa'])){
                         <th scope="row">Socializaci&oacute;n (deseo y capacidad de estar bien
                             con los dem&aacute;s)</th>
                         <td>
-                           <input type="text" id="socialnino" name="socialnino" size="10"/> 
+                          <select name="socialnino" id="socialnino"> 
+                            <?php
+                             foreach ($listacambios as $lcambio) {
+                            ?>
+                              <option value="<?php echo $lcambio->getValueEncoded('COD')?>" selected="selected">
+                              <?php echo (($lcambio->getValueEncoded('CAMBIO')))?></option>
+                            <?php
+                                 }     
+                                ?>
+                          </select>      
+                         
                         </td>
                         <td>
-                           <input type="text" id="socialpadres" name="socialpadres" size="10"/> 
+                           <select name="socialpadres" id="socialpadres"> 
+                            <?php
+                             foreach ($listacambios as $lcambio) {
+                            ?>
+                              <option value="<?php echo $lcambio->getValueEncoded('COD')?>" selected="selected">
+                              <?php echo (($lcambio->getValueEncoded('CAMBIO')))?></option>
+                            <?php
+                                 }     
+                                ?>
+                          </select>   
+                         
                         </td>
                     </tr>
                     
                     <tr>
                         <th scope="row">Deseo de abandanor el Programa de abordaje del peso</th>
                         <td>
-                           <input type="text" id="deseonino" name="deseonino" size="10"/> 
+                          <select name="deseonino" id="deseonino"> 
+                            <?php
+                             foreach ($listacambios as $lcambio) {
+                            ?>
+                              <option value="<?php echo $lcambio->getValueEncoded('COD')?>" selected="selected">
+                              <?php echo (($lcambio->getValueEncoded('CAMBIO')))?></option>
+                            <?php
+                                 }     
+                                ?>
+                          </select>    
+                         
                         </td>
                         <td>
-                           <input type="text" id="deseopadres" name="deseopadres" size="10"/> 
+                          <select name="deseopadres" id="deseopadres"> 
+                            <?php
+                             foreach ($listacambios as $lcambio) {
+                            ?>
+                              <option value="<?php echo $lcambio->getValueEncoded('COD')?>" selected="selected">
+                              <?php echo (($lcambio->getValueEncoded('CAMBIO')))?></option>
+                            <?php
+                                 }     
+                                ?>
+                          </select>    
+                        
                         </td>
                     </tr>
             </table>    
@@ -699,7 +779,8 @@ if (isset ($_GET['nuhsa'])){
                     <option value="0">No cambio</option>
                     <option value="1">Dismunici&oacute;n</option>
                 </select>  
-              
+            </div>  
+            
               <label>Act. F&iacute;sica madre:</label> 
                 <select name="actividad_madre" id="centro" name="actividad_madre"> 
                     <option value="0">No cambio</option>
