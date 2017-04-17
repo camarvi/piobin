@@ -137,6 +137,9 @@ if (isset ($_GET['nuhsa'])){
           
  
     ?>
+
+<script type="text/javascript" src="/js/funciones.js"></script>
+
 <script lang="javascript">
     alert("FICHA ALMACENADA CORRECTAMENTE")
 </script>
@@ -277,7 +280,7 @@ if (isset ($_GET['nuhsa'])){
                     <tr>
                         <th scope="row">+ Fruta fresca cruda o cocida</th>
                         <td>
-                           <select name="frutanino" id="frutanino"> 
+                            <select name="frutanino" id="frutanino" onchange="sumar_tnino();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
                                  ?>
@@ -290,7 +293,7 @@ if (isset ($_GET['nuhsa'])){
                             </select>     
                         </td>
                         <td>
-                           <select name="frutapadres" id="frutapadres"> 
+                            <select name="frutapadres" id="frutapadres" onchange="sumar_tpadres();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
                                  ?>
@@ -307,7 +310,7 @@ if (isset ($_GET['nuhsa'])){
                     <tr>
                         <th scope="row">+ Verdura de temporada con pocas grasas</th>
                        <td>
-                           <select name="verduranino" id="verduranino"> 
+                           <select name="verduranino" id="verduranino" onchange="sumar_tnino();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
                                  ?>
@@ -321,7 +324,7 @@ if (isset ($_GET['nuhsa'])){
                       
                         </td>
                         <td>
-                          <select name="verdurapadres" id="verdurapadres"> 
+                          <select name="verdurapadres" id="verdurapadres" onchange="sumar_tpadres();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
                                  ?>
@@ -338,7 +341,7 @@ if (isset ($_GET['nuhsa'])){
                     <tr>
                         <th scope="row">- Comer entrehoras (snacks,dulces,etc)</th>
                        <td>
-                          <select name="horasnino" id="horasnino"> 
+                          <select name="horasnino" id="horasnino" onchange="sumar_tnino();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
                                  ?>
@@ -352,7 +355,7 @@ if (isset ($_GET['nuhsa'])){
                          
                         </td>
                         <td>
-                           <select name="horaspadres" id="horaspadres"> 
+                           <select name="horaspadres" id="horaspadres" onchange="sumar_tpadres();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
                                  ?>
@@ -369,7 +372,7 @@ if (isset ($_GET['nuhsa'])){
                     <tr>
                         <th scope="row">- Grasas (mayonesa,nocilla,nata)</th>
                        <td>
-                         <select name="grasasnino" id="grasasnino"> 
+                         <select name="grasasnino" id="grasasnino" onchange="sumar_tnino();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
                                  ?>
@@ -382,7 +385,7 @@ if (isset ($_GET['nuhsa'])){
                            </select>      
                         </td>
                         <td>
-                          <select name="grasaspadres" id="grasaspadres"> 
+                          <select name="grasaspadres" id="grasaspadres" onchange="sumar_tpadres();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
                                  ?>
@@ -399,7 +402,7 @@ if (isset ($_GET['nuhsa'])){
                     <tr>
                         <th scope="row">- Dulces (bolleria, etc)</th>
                        <td>
-                          <select name="dulcesnino" id="dulcesnino"> 
+                          <select name="dulcesnino" id="dulcesnino" onchange="sumar_tnino();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
                                  ?>
@@ -412,7 +415,7 @@ if (isset ($_GET['nuhsa'])){
                            </select>
                         </td>
                         <td>
-                          <select name="dulcespadres" id="dulcespadres"> 
+                          <select name="dulcespadres" id="dulcespadres" onchange="sumar_tpadres();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
                                  ?>
@@ -429,7 +432,7 @@ if (isset ($_GET['nuhsa'])){
                     <tr>
                         <th scope="row">- Bebidas dulces (Refrescos, batidos, etc)</th>
                        <td>
-                          <select name="bebidasnino" id="bebidasnino"> 
+                          <select name="bebidasnino" id="bebidasnino" onchange="sumar_tnino();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
                                  ?>
@@ -442,7 +445,7 @@ if (isset ($_GET['nuhsa'])){
                            </select> 
                         </td>
                         <td>
-                          <select name="bebidaspadres" id="bebidaspadres"> 
+                          <select name="bebidaspadres" id="bebidaspadres" onchange="sumar_tpadres();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
                                  ?>
@@ -489,7 +492,7 @@ if (isset ($_GET['nuhsa'])){
                     <tr>
                         <th scope="row">+ Actividad deportiva organizada</th>
                         <td>
-                          <select name="deportenino" id="deportenino"> 
+                            <select name="deportenino" id="deportenino" onchange="sumar_fisicanino();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
                                  ?>
@@ -502,7 +505,7 @@ if (isset ($_GET['nuhsa'])){
                            </select>     
                         </td>
                         <td>
-                          <select name="deportepadres" id="deportepadres"> 
+                            <select name="deportepadres" id="deportepadres" onchange="sumar_fisicapadres();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
                                  ?>
@@ -519,7 +522,7 @@ if (isset ($_GET['nuhsa'])){
                     <tr>
                         <th scope="row">+ Juego espontaneo activo</th>
                         <td>
-                          <select name="juegonino" id="juegonino"> 
+                          <select name="juegonino" id="juegonino" onchange="sumar_fisicanino();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
                                  ?>
@@ -533,7 +536,7 @@ if (isset ($_GET['nuhsa'])){
                        
                         </td>
                         <td>
-                          <select name="juegopadres" id="juegopadres"> 
+                          <select name="juegopadres" id="juegopadres" onchange="sumar_fisicapadres();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
                                  ?>
@@ -551,7 +554,7 @@ if (isset ($_GET['nuhsa'])){
                     <tr>
                         <th scope="row">+ Movimiento en la vida cotidiana</th>
                         <td>
-                          <select name="movimientonino" id="movimientonino"> 
+                          <select name="movimientonino" id="movimientonino" onchange="sumar_fisicanino();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
                                  ?>
@@ -565,7 +568,7 @@ if (isset ($_GET['nuhsa'])){
                         
                         </td>
                         <td>
-                           <select name="movimientopadres" id="movimientopadres"> 
+                           <select name="movimientopadres" id="movimientopadres" onchange="sumar_fisicapadres();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
                                  ?>
@@ -581,7 +584,7 @@ if (isset ($_GET['nuhsa'])){
                     <tr>
                         <th scope="row">- Actividad sedentaria (TV, PC, etc)</th>
                         <td>
-                           <select name="sedentarianino" id="sedentarianino"> 
+                           <select name="sedentarianino" id="sedentarianino" onchange="sumar_fisicanino();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
                                  ?>
@@ -594,7 +597,7 @@ if (isset ($_GET['nuhsa'])){
                            </select>        
                         </td>
                         <td>
-                          <select name="sedentariapadres" id="sedentariapadres"> 
+                          <select name="sedentariapadres" id="sedentariapadres" onchange="sumar_fisicapadres();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
                                  ?>
