@@ -70,7 +70,8 @@ form img {
   input:focus, textarea:focus {
     /* Para dar un pequeño destaque en elementos activos*/
     border-color: #91fff6;
-    background-color: #f7ffbf;
+    background-color: #f7ffbf; 
+   
 }
 
 .datos_personales {
@@ -140,7 +141,8 @@ form img {
 
 
 .tablaentrada td:hover {
-     background: #fffe85;
+   /*  background: #fffe85; */
+     background:    #21960e;
     
 }   
 

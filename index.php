@@ -24,9 +24,9 @@ if (isset ($_GET['nuhsa'])){
     $centro=$_GET['centro'];
     $an=$usuario->getValue('NUHSA');
    
-    $cnpprofesional=$_GET['cnpprofesional'];
+    $cnp=$_GET['cnpprofesional'];
     
-     $fichapiobin=  FichaPiobin::getPiobin($an);
+    $fichapiobin=  FichaPiobin::getPiobin($an);
      
           
     if (is_null($fichapiobin)) {
@@ -36,17 +36,17 @@ if (isset ($_GET['nuhsa'])){
         
     }
 }
-
+      
 
 
  if (isset ($_POST['registrar'])) {
 
      
-        $usuario=Usuarios::getUsuario($_POST['nuhsa']);
-        $nombre_usuario=trim($usuario->getValueEncoded('APE1')) . " " . trim($usuario->getValueEncoded('APE2')) . ", " . trim($usuario->getValueEncoded('NOMBRE'));
+        $usuario=Usuarios::getUsuario($_POST['an']);
+       // $nombre_usuario=trim($usuario->getValueEncoded('APE1')) . " " . trim($usuario->getValueEncoded('APE2')) . ", " . trim($usuario->getValueEncoded('NOMBRE'));
         $centro=$_POST['centro'];
-        $fnacimiento=$_POST['nacimiento'];
-        $cnpprofesional=$_POST['cnp'];
+       
+        $cnp=$_POST['cnp'];
       
      
         $separar =explode('/',$_POST["fecha"]);
@@ -76,19 +76,19 @@ if (isset ($_GET['nuhsa'])){
         
       
         
-    if (isset ($_POST['nuhsa'])) {  
-        $nuhsa=$_POST['nuhsa'];
+    if (isset ($_POST['an'])) {  
+        $an=$_POST['an'];
         
-    }  else {$nuhsa=""; }
+    }  else {$an=""; }
       
     
     
- $fichapiobinusuario=new Peticion(array(
+ $fichapiobinusuario=new FichaPiobin(array(
         
         "COD"=>$cod,
         "AN"=>$an,
         "CENTRO"=>$centro,
-        "CNP"=>$centro,
+        "CNP"=>$cnp,
         "FECHA"=>$fechaok,
         "TIEMPO"=>$_POST["tiempo"],
         "FDIAGNOSTICO"=>$fdiagnosticook,
@@ -133,8 +133,23 @@ if (isset ($_GET['nuhsa'])){
         "CERRADO"=>"",
         "FECHA_FIN"=>""
      ));
-    $nuevapeticion->nueva_peticion();
+ 
+    $fichapiobinusuario->nueva_ficha();
+    
+    $fichapiobin= FichaPiobin::getPiobin($_POST['an']);
+     
           
+    if (is_null($fichapiobin)) {
+       $cod=0;
+    } else {
+       $cod=$fichapiobin->getValue('COD'); 
+        
+    }
+     
+    $centro=$_GET['centro'];
+    $an=$_POST['an'];
+    $cnp=$_GET['cnp'];
+    
  
     ?>
 
@@ -152,16 +167,18 @@ if (isset ($_GET['nuhsa'])){
         <meta charset="UTF-8">
    
       <title> Peticion Estudio Piobin</title>
-<meta name="author" content="carlos" />
+    <meta name="author" content="carlos" />
 
 
 
 
  <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
 
+ <script type="text/javascript" src="js/funciones.js"></script>
  
  <script type="text/javascript" >
  
+
  
  function valida_fecha(fecha) {
  
@@ -188,7 +205,7 @@ if (isset ($_GET['nuhsa'])){
 </head>
     
 <header>    
-  <h1><u>Cuestionario de Segumiento</u></h1>
+  <h1><u>Cuestionario de Seguimiento</u></h1>
   <h1><u>Valoraci&oacute;n Peri&oacute;dica de los Pasos hacia un mejor Estilo de Vida.</u></h1>
   <h3>Distrito Sanitario Almer&iacute;a</h3>
 </header>       

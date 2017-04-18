@@ -82,12 +82,13 @@ class FichaPiobin  extends DataObject {
             $st->bindValue(":FDIAGNOSTICO",$this->data["FDIAGNOSTICO"], PDO::PARAM_STR);
             $st->bindValue(":IMC_DIAGNOSTICO",$this->data["IMC_DIAGNOSTICO"], PDO::PARAM_STR);
             $st->bindValue(":DESVIACION_DIAGNOSTICO",$this->data["DESVIACION_DIAGNOSTICO"], PDO::PARAM_STR);
-            $st->bindValue(":FEVALUACION",$this->data["FDIAGNOSTICO"], PDO::PARAM_STR);
+            $st->bindValue(":FEVALUACION",$this->data["FEVALUACION"], PDO::PARAM_STR);
             $st->bindValue(":IMC_EVALUACION",$this->data["IMC_EVALUACION"], PDO::PARAM_STR);
             $st->bindValue(":DESVIACION_EVALUACION",$this->data["DESVIACION_EVALUACION"], PDO::PARAM_STR);
             $st->bindValue(":FRUTANINO",$this->data["FRUTANINO"], PDO::PARAM_STR);
             $st->bindValue(":FRUTAPADRES",$this->data["FRUTAPADRES"], PDO::PARAM_INT);
             $st->bindValue(":VERDURANINO",$this->data["VERDURANINO"], PDO::PARAM_INT);
+            $st->bindValue(":VERDURAPADRES",$this->data["VERDURAPADRES"], PDO::PARAM_INT);
             $st->bindValue(":HORASNINO",$this->data["HORASNINO"], PDO::PARAM_INT); 
             $st->bindValue(":HORASPADRES",$this->data["HORASPADRES"], PDO::PARAM_INT);
             $st->bindValue(":GRASASNINO",$this->data["GRASASNINO"], PDO::PARAM_INT);

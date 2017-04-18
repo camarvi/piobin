@@ -22,6 +22,8 @@ function sumar_tnino()
         var valor6=verificar("bebidasnino"); 
       
     */
+     
+       
         var valor1=document.getElementById("frutanino").value; 
 
         var valor2=document.getElementById("verduranino").value;
@@ -97,12 +99,12 @@ function sumar_tnino()
 
     }
 
- 
+     
 function sumar_fisicapadres()
 
     {
 
-        var valor1=document.getElementById("deportenpadres").value; 
+        var valor1=document.getElementById("deportepadres").value; 
 
         var valor2=document.getElementById("juegopadres").value;
 
