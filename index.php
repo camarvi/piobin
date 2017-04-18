@@ -106,7 +106,7 @@ if (isset ($_GET['nuhsa'])){
         "GRASASNINO"=>$_POST["grasasnino"],
         "GRASASPADRES"=>$_POST["grasaspadres"],
         "DULCESNINO"=>$_POST["dulcesnino"],
-        "DULCESPADRES"=>$_POST["dulvespadres"],
+        "DULCESPADRES"=>$_POST["dulcespadres"],
         "BEBIDASNINO"=>$_POST["bebidasnino"],
         "BEBIDASPADRES"=>$_POST["bebidaspadres"],
         "DEPORTENINO"=>$_POST["deportenino"],
