@@ -31,8 +31,97 @@ if (isset ($_GET['nuhsa'])){
           
     if (is_null($fichapiobin)) {
        $cod=0;
+       
+       $fecha='';
+       $tiempo='';
+       $fdiagnostico='';
+       $imc_diagnostico='';
+       $desviacion_diagnostico='';
+       $fevaluacion='';
+       $imc_evaluacion='';
+       $desviacion_evaluacion='';
+       $frutanino= '';
+       $frutapadres= '';
+       $verduranino= '';
+       $verdurapadres= '';
+       $horasnino= '';
+       $horaspadres= '';
+       $grasasnino= '';
+       $grasaspadres= '';
+       $dulcesnino= '';
+       $dulcespadres= '';
+       $bebidasnino= '';
+       $bebidaspadres= '';
+       $deportenino= '';
+       $deportepadres= '';
+       $juegonino= '';
+       $juegopadres= '';
+       $movimientonino= '';
+       $movimientopadres= '';
+       $sedentarianino= '';
+       $sedentariapadres= '';
+       $humornino= '';
+       $humorpadres= '';
+       $escolarnino= '';
+       $escolarpadres= '';
+       $socialnino= '';
+       $socialpadres= '';
+       $deseonino= '';
+       $deseopadres= '';
+       $pesomadre= '';
+       $pesopadre= '';
+       $actividad_madre= '';
+       $actividad_padre= '';
+       $refuerzo_pos= '';
+      
     } else {
        $cod=$fichapiobin->getValue('COD'); 
+       $an=$fichapiobin->getValue('AN');
+       $centro=$fichapiobin->getValue('CENTRO');
+       $cnp=$fichapiobin->getValue('CNP');
+       $fecha=$fichapiobin->getValue('FECHA');
+       $tiempo=$fichapiobin->getValue('tiempo');
+       $fdiagnostico=$fichapiobin->getValue('fdiagnostico');
+       $imc_diagnostico=$fichapiobin->getValue('imc_diagnostico');
+       $desviacion_diagnostico=$fichapiobin->getValue('desviacion_diagnostico');
+       $fevaluacion=$fichapiobin->getValue('fevaluacion');
+       $imc_evaluacion=$fichapiobin->getValue('imc_evaluacion');
+       $desviacion_evaluacion=$fichapiobin->getValue('desviacion_evaluacion');
+       $frutanino= $fichapiobin->getValue('frutanino');
+       $frutapadres= $fichapiobin->getValue('frutapadres');
+       $verduranino= $fichapiobin->getValue('verduranino');
+       $verdurapadres= $fichapiobin->getValue('verdurapadres');
+       $horasnino= $fichapiobin->getValue('horasnino');
+       $horaspadres= $fichapiobin->getValue('horaspadres');
+       $grasasnino= $fichapiobin->getValue('grasasnino');
+       $grasaspadres= $fichapiobin->getValue('grasaspadres');
+       $dulcesnino= $fichapiobin->getValue('dulcesnino');
+       $dulcespadres= $fichapiobin->getValue('dulcespadres');
+       $bebidasnino= $fichapiobin->getValue('bebidasnino');
+       $bebidaspadres= $fichapiobin->getValue('bebidaspadres');
+       $deportenino= $fichapiobin->getValue('deportenino');
+       $deportepadres= $fichapiobin->getValue('deportepadres');
+       $juegonino= $fichapiobin->getValue('juegonino');
+       $juegopadres= $fichapiobin->getValue('juegopadres');
+       $movimientonino= $fichapiobin->getValue('movimientonino');
+       $movimientopadres= $fichapiobin->getValue('movimientopadres');
+       $sedentarianino= $fichapiobin->getValue('sedentarianino');
+       $sedentariapadres= $fichapiobin->getValue('sedentariapadres');
+       $humornino= $fichapiobin->getValue('humornino');
+       $humorpadres= $fichapiobin->getValue('humorpadres');
+       $escolarnino= $fichapiobin->getValue('escolarnino');
+       $escolarpadres= $fichapiobin->getValue('escolarpadres');
+       $socialnino= $fichapiobin->getValue('socialnino');
+       $socialpadres= $fichapiobin->getValue('socialpadres');
+       $deseonino= $fichapiobin->getValue('deseonino');
+       $deseopadres= $fichapiobin->getValue('deseopadres');
+       $pesomadre= $fichapiobin->getValue('pesomadre');
+       $pesopadre= $fichapiobin->getValue('pesopadre');
+       $actividad_madre= $fichapiobin->getValue('actividad_madre');
+       $actividad_padre= $fichapiobin->getValue('actividad_padre');
+       $refuerzo_pos= $fichapiobin->getValue('refuerzo_pos');
+       
+       
         
     }
 }
@@ -141,8 +230,94 @@ if (isset ($_GET['nuhsa'])){
           
     if (is_null($fichapiobin)) {
        $cod=0;
+        $fecha='';
+       $tiempo='';
+       $fdiagnostico='';
+       $imc_diagnostico='';
+       $desviacion_diagnostico='';
+       $fevaluacion='';
+       $imc_evaluacion='';
+       $desviacion_evaluacion='';
+       $frutanino= '';
+       $frutapadres= '';
+       $verduranino= '';
+       $verdurapadres= '';
+       $horasnino= '';
+       $horaspadres= '';
+       $grasasnino= '';
+       $grasaspadres= '';
+       $dulcesnino= '';
+       $dulcespadres= '';
+       $bebidasnino= '';
+       $bebidaspadres= '';
+       $deportenino= '';
+       $deportepadres= '';
+       $juegonino= '';
+       $juegopadres= '';
+       $movimientonino= '';
+       $movimientopadres= '';
+       $sedentarianino= '';
+       $sedentariapadres= '';
+       $humornino= '';
+       $humorpadres= '';
+       $escolarnino= '';
+       $escolarpadres= '';
+       $socialnino= '';
+       $socialpadres= '';
+       $deseonino= '';
+       $deseopadres= '';
+       $pesomadre= '';
+       $pesopadre= '';
+       $actividad_madre= '';
+       $actividad_padre= '';
+       $refuerzo_pos= '';
     } else {
        $cod=$fichapiobin->getValue('COD'); 
+       $an=$fichapiobin->getValue('AN');
+       $centro=$fichapiobin->getValue('CENTRO');
+       $cnp=$fichapiobin->getValue('CNP');
+       $fecha=$fichapiobin->getValue('FECHA');
+       $tiempo=$fichapiobin->getValue('tiempo');
+       $fdiagnostico=$fichapiobin->getValue('fdiagnostico');
+       $imc_diagnostico=$fichapiobin->getValue('imc_diagnostico');
+       $desviacion_diagnostico=$fichapiobin->getValue('desviacion_diagnostico');
+       $fevaluacion=$fichapiobin->getValue('fevaluacion');
+       $imc_evaluacion=$fichapiobin->getValue('imc_evaluacion');
+       $desviacion_evaluacion=$fichapiobin->getValue('desviacion_evaluacion');
+       $frutanino= $fichapiobin->getValue('frutanino');
+       $frutapadres= $fichapiobin->getValue('frutapadres');
+       $verduranino= $fichapiobin->getValue('verduranino');
+       $verdurapadres= $fichapiobin->getValue('verdurapadres');
+       $horasnino= $fichapiobin->getValue('horasnino');
+       $horaspadres= $fichapiobin->getValue('horaspadres');
+       $grasasnino= $fichapiobin->getValue('grasasnino');
+       $grasaspadres= $fichapiobin->getValue('grasaspadres');
+       $dulcesnino= $fichapiobin->getValue('dulcesnino');
+       $dulcespadres= $fichapiobin->getValue('dulcespadres');
+       $bebidasnino= $fichapiobin->getValue('bebidasnino');
+       $bebidaspadres= $fichapiobin->getValue('bebidaspadres');
+       $deportenino= $fichapiobin->getValue('deportenino');
+       $deportepadres= $fichapiobin->getValue('deportepadres');
+       $juegonino= $fichapiobin->getValue('juegonino');
+       $juegopadres= $fichapiobin->getValue('juegopadres');
+       $movimientonino= $fichapiobin->getValue('movimientonino');
+       $movimientopadres= $fichapiobin->getValue('movimientopadres');
+       $sedentarianino= $fichapiobin->getValue('sedentarianino');
+       $sedentariapadres= $fichapiobin->getValue('sedentariapadres');
+       $humornino= $fichapiobin->getValue('humornino');
+       $humorpadres= $fichapiobin->getValue('humorpadres');
+       $escolarnino= $fichapiobin->getValue('escolarnino');
+       $escolarpadres= $fichapiobin->getValue('escolarpadres');
+       $socialnino= $fichapiobin->getValue('socialnino');
+       $socialpadres= $fichapiobin->getValue('socialpadres');
+       $deseonino= $fichapiobin->getValue('deseonino');
+       $deseopadres= $fichapiobin->getValue('deseopadres');
+       $pesomadre= $fichapiobin->getValue('pesomadre');
+       $pesopadre= $fichapiobin->getValue('pesopadre');
+       $actividad_madre= $fichapiobin->getValue('actividad_madre');
+       $actividad_padre= $fichapiobin->getValue('actividad_padre');
+       $refuerzo_pos= $fichapiobin->getValue('refuerzo_pos');
+       
         
     }
      
@@ -231,11 +406,17 @@ if (isset ($_GET['nuhsa'])){
             <select name="tiempo" id="tiempo"> 
                 <?php
                  foreach ($listatiempo as $ltiempo) {
+                
+                   if ($ltiempo->getValueEncoded('COD')==$tiempo){  
                 ?>
-                   <option value="<?php echo $ltiempo->getValueEncoded('COD')?>">
+                   <option value="<?php echo $ltiempo->getValueEncoded('COD')?>" selected="selected">
+                   <?php  } else { ?>  
+                        <option value="<?php echo $ltiempo->getValueEncoded('COD')?>">
+                   <?php } ?>  
                    <?php echo (($ltiempo->getValueEncoded('TIEMPO')))?></option>
                 <?php
-                  }     
+               
+                 }
                 ?>
             </select>    
           </div>
@@ -255,25 +436,43 @@ if (isset ($_GET['nuhsa'])){
                     <tr>
                         <th scope="row">Diagn&oacute;stico</th>
                         <td>
-                           <input type="text" id="fdiagnostico" name="fdiagnostico" size="10" onblur="valida_fecha(this.value)" value="<?php echo date('d/m/Y'); ?>"/> 
+                           <input type="text" id="fdiagnostico" name="fdiagnostico" size="10" onblur="valida_fecha(this.value)" 
+                                  value="<?php      
+                                    if ($cod>0) {
+                                    echo $fichapiobin->getValue('fdiagnostico');
+                                    } else {
+                                    echo date('d/m/Y');} ?>"/> 
                         </td>
                         <td>
-                           <input type="text" id="imc_diagnostico" name="imc_diagnostico" size="10"/> 
+                           <input type="text" id="imc_diagnostico" name="imc_diagnostico" size="10"
+                             value="<?php      
+                                 if ($cod>0) {
+                                   echo $fichapiobin->getValue('imc_diagnostico');
+                                 }   
+                             ?>"/> 
                         </td>
                         <td>
-                           <input type="text" id="desviacion_diagnostico" name="desviacion_diagnostico" size="10"/> 
+                           <input type="text" id="desviacion_diagnostico" name="desviacion_diagnostico" size="10"
+                               value="<?php echo $desviacion_diagnostico;?>" /> 
                         </td>
                     </tr>
                     <tr>
                         <th scope="row">Evaluaci&oacute;n</th>
                         <td>
-                           <input type="text" id="fevaluacion" name="fevaluacion" size="10" onblur="valida_fecha(this.value)" value="<?php echo date('d/m/Y'); ?>"/> 
+                           <input type="text" id="fevaluacion" name="fevaluacion" size="10" onblur="valida_fecha(this.value)" 
+                                  value="<?php 
+                                   if ($cod>0) {
+                                   echo $fevaluacion;
+                                 }   else {
+                                 echo date('d/m/Y');} ?>"/> 
                         </td>
                         <td>
-                           <input type="text" id="imc_evaluacion" name="imc_evaluacion" size="10"/> 
+                           <input type="text" id="imc_evaluacion" name="imc_evaluacion" size="10"
+                                   value="<?php  echo $imc_evaluacion; ?>"/> 
                         </td>
                         <td>
-                           <input type="text" id="desviacion_evaluacion" name="desviacion_evaluacion" size="10"/> 
+                           <input type="text" id="desviacion_evaluacion" name="desviacion_evaluacion" size="10"
+                                  value="<?php echo $fichapiobin->getValue('desviacion_evaluacion');?>"/> 
                         </td>
                     </tr>
                     <tr colspan="4">Nota: Utilizar la tabla de IMC para valoraci&oacute;n</tr>
@@ -300,9 +499,14 @@ if (isset ($_GET['nuhsa'])){
                             <select name="frutanino" id="frutanino" onchange="sumar_tnino();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
+                                 if ($frutanino==$i) {
                                  ?>
-                                 <option value="<?php echo $i;?>">
+                                <option value="<?php echo $i;?>" selected="selected">
+                                 <?php } else { ?>    
+                                 <option value="<?php echo $i;?>">   
+                                 <?php } ?>    
                                     <?php echo $i;?>
+                                    
                                  </option>
                               <?php
                                   }     
@@ -313,8 +517,12 @@ if (isset ($_GET['nuhsa'])){
                             <select name="frutapadres" id="frutapadres" onchange="sumar_tpadres();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
+                                 if ($frutapadres==$i) {
                                  ?>
-                                 <option value="<?php echo $i;?>">
+                                <option value="<?php echo $i;?>" selected="selected">
+                                 <?php } else { ?>
+                                  <option value="<?php echo $i;?>"> 
+                                 <?php }?>  
                                     <?php echo $i;?>
                                  </option>
                               <?php
@@ -330,8 +538,12 @@ if (isset ($_GET['nuhsa'])){
                            <select name="verduranino" id="verduranino" onchange="sumar_tnino();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
+                                 if ($verduranino==$i) {
                                  ?>
+                               <option value="<?php echo $i;?>" selected="selected">
+                                 <?php } else { ?>
                                  <option value="<?php echo $i;?>">
+                                 <?php } ?>    
                                     <?php echo $i;?>
                                  </option>
                               <?php
@@ -344,8 +556,12 @@ if (isset ($_GET['nuhsa'])){
                           <select name="verdurapadres" id="verdurapadres" onchange="sumar_tpadres();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
+                                if ($verdurapadres==$i){ 
                                  ?>
-                                 <option value="<?php echo $i;?>">
+                              <option value="<?php echo $i;?>" selected="selected">
+                                <?php } else { ?>   
+                              <option value="<?php echo $i;?>"></option>   
+                                <?php } ?>
                                     <?php echo $i;?>
                                  </option>
                               <?php
@@ -361,8 +577,12 @@ if (isset ($_GET['nuhsa'])){
                           <select name="horasnino" id="horasnino" onchange="sumar_tnino();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
+                               if ($horasnino==$i)  {
                                  ?>
-                                 <option value="<?php echo $i;?>">
+                                 <option value="<?php echo $i;?>" selected="selected">
+                               <?php } else { ?>
+                                 <option value="<?php echo $i;?>" selected="selected">  
+                               <?php } ?>     
                                     <?php echo $i;?>
                                  </option>
                               <?php
@@ -375,8 +595,12 @@ if (isset ($_GET['nuhsa'])){
                            <select name="horaspadres" id="horaspadres" onchange="sumar_tpadres();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
+                               if ($horaspadres==$i) {  
                                  ?>
-                                 <option value="<?php echo $i;?>">
+                               <option value="<?php echo $i;?>" selected="selected">
+                               <?php } else { ?>
+                                <option value="<?php echo $i;?>">
+                               <?php } ?>     
                                     <?php echo $i;?>
                                  </option>
                               <?php
@@ -392,8 +616,12 @@ if (isset ($_GET['nuhsa'])){
                          <select name="grasasnino" id="grasasnino" onchange="sumar_tnino();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
+                                if ($grasasnino==$i) { 
                                  ?>
-                                 <option value="<?php echo $i;?>">
+                             <option value="<?php echo $i;?>" selected="selected">
+                                <?php } else { ?>
+                                 <option value="<?php echo $i;?>"> 
+                                <?php } ?>     
                                     <?php echo $i;?>
                                  </option>
                               <?php
@@ -405,8 +633,12 @@ if (isset ($_GET['nuhsa'])){
                           <select name="grasaspadres" id="grasaspadres" onchange="sumar_tpadres();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
+                                if ($grasaspadres==$i) { 
                                  ?>
-                                 <option value="<?php echo $i;?>">
+                              <option value="<?php echo $i;?>" selected="selected">
+                               <?php } else { ?>
+                                 <option value="<?php echo $i;?>"> 
+                               <?php } ?>      
                                     <?php echo $i;?>
                                  </option>
                               <?php
@@ -422,8 +654,12 @@ if (isset ($_GET['nuhsa'])){
                           <select name="dulcesnino" id="dulcesnino" onchange="sumar_tnino();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
+                                if ($dulcesnino==$i) {
                                  ?>
-                                 <option value="<?php echo $i;?>">
+                              <option value="<?php echo $i;?>" selected="selected">
+                                <?php } else { ?>
+                                <option value="<?php echo $i;?>">  
+                                <?php } ?>    
                                     <?php echo $i;?>
                                  </option>
                               <?php
@@ -435,9 +671,13 @@ if (isset ($_GET['nuhsa'])){
                           <select name="dulcespadres" id="dulcespadres" onchange="sumar_tpadres();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
+                                if ($dulcespadres==$i) { 
                                  ?>
-                                 <option value="<?php echo $i;?>">
-                                    <?php echo $i;?>
+                              <option value="<?php echo $i;?>" selected="selected">
+                              <?php } else { ?>
+                                <option value="<?php echo $i;?>">  
+                              <?php } ?>   
+                                 <?php echo $i;?>
                                  </option>
                               <?php
                                   }     
@@ -452,8 +692,12 @@ if (isset ($_GET['nuhsa'])){
                           <select name="bebidasnino" id="bebidasnino" onchange="sumar_tnino();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
+                                if ($bebidasnino==$i) { 
                                  ?>
-                                 <option value="<?php echo $i;?>">
+                              <option value="<?php echo $i;?>" selected="selected">
+                                <?php } else { ?>
+                                <option value="<?php echo $i;?>">  
+                                <?php } ?>    
                                     <?php echo $i;?>
                                  </option>
                               <?php
@@ -465,8 +709,12 @@ if (isset ($_GET['nuhsa'])){
                           <select name="bebidaspadres" id="bebidaspadres" onchange="sumar_tpadres();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
+                                if ($bebidaspadres==$i){ 
                                  ?>
-                                 <option value="<?php echo $i;?>">
+                              <option value="<?php echo $i;?>" selected="selected">
+                                <?php } else { ?>
+                                <option value="<?php echo $i;?>">
+                                <?php } ?>    
                                     <?php echo $i;?>
                                  </option>
                               <?php
@@ -475,11 +723,12 @@ if (isset ($_GET['nuhsa'])){
                            </select>   
                         </td>
                     </tr>
-                    
+                    <?php $totalnino=$frutanino+$verduranino+$horasnino+$grasasnino+$dulcesnino+$bebidasnino; ?>
                     <tr>
                         <th scope="row">Valoraci&oacute;n Total</th>
                        <td>
-                           <input type="text" id="totalnino" name="totalnino" size="10" readonly="readonly"/> 
+                           <input type="text" id="totalnino" name="totalnino" size="10" readonly="readonly"
+                               value="<?php echo $totalnino; ?>"   /> 
                         </td>
                         <td>
                             <input type="text" id="totalpadres" name="totalpadres" size="10" readonly="readonly"/> 
@@ -512,8 +761,12 @@ if (isset ($_GET['nuhsa'])){
                             <select name="deportenino" id="deportenino" onchange="sumar_fisicanino();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
+                                 if ($deportenino==$i) {
                                  ?>
-                                 <option value="<?php echo $i;?>">
+                                <option value="<?php echo $i;?>" selected="selected" >
+                                 <?php } else {  ?>
+                                  <option value="<?php echo $i;?>">
+                                 <?php } ?>    
                                     <?php echo $i;?>
                                  </option>
                               <?php
@@ -525,8 +778,12 @@ if (isset ($_GET['nuhsa'])){
                             <select name="deportepadres" id="deportepadres" onchange="sumar_fisicapadres();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
+                                if ($deportepadres==$i){ 
                                  ?>
+                                <option value="<?php echo $i;?>" selected="selected">
+                                <?php } else { ?>
                                  <option value="<?php echo $i;?>">
+                                <?php } ?>     
                                     <?php echo $i;?>
                                  </option>
                               <?php
@@ -542,8 +799,12 @@ if (isset ($_GET['nuhsa'])){
                           <select name="juegonino" id="juegonino" onchange="sumar_fisicanino();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
+                                 if ($juegonino==$i) {
                                  ?>
-                                 <option value="<?php echo $i;?>">
+                              <option value="<?php echo $i;?>" selected="selected">
+                                 <?php } else { ?>
+                              <option value="<?php echo $i;?>">
+                                 <?php } ?>  
                                     <?php echo $i;?>
                                  </option>
                               <?php
@@ -556,8 +817,12 @@ if (isset ($_GET['nuhsa'])){
                           <select name="juegopadres" id="juegopadres" onchange="sumar_fisicapadres();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
+                                if ($juegopadres==$i) { 
                                  ?>
-                                 <option value="<?php echo $i;?>">
+                              <option value="<?php echo $i;?>" selected="selected">
+                                <?php } else { ?>  
+                                <option value="<?php echo $i;?>">  
+                                <?php } ?>    
                                     <?php echo $i;?>
                                  </option>
                               <?php
@@ -574,8 +839,12 @@ if (isset ($_GET['nuhsa'])){
                           <select name="movimientonino" id="movimientonino" onchange="sumar_fisicanino();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
+                                if ($movimientonino==$i){ 
                                  ?>
-                                 <option value="<?php echo $i;?>">
+                              <option value="<?php echo $i;?>" selected="selected">
+                                <?php } else {  ?>
+                                <option value="<?php echo $i;?>">
+                                <?php } ?>    
                                     <?php echo $i;?>
                                  </option>
                               <?php
@@ -588,8 +857,12 @@ if (isset ($_GET['nuhsa'])){
                            <select name="movimientopadres" id="movimientopadres" onchange="sumar_fisicapadres();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
+                                if ($movimientopadres==$i){ 
                                  ?>
-                                 <option value="<?php echo $i;?>">
+                               <option value="<?php echo $i;?>" selected="selected">
+                                <?php } else { ?>
+                                <option value="<?php echo $i;?>">
+                                <?php } ?>    
                                     <?php echo $i;?>
                                  </option>
                               <?php
@@ -604,8 +877,12 @@ if (isset ($_GET['nuhsa'])){
                            <select name="sedentarianino" id="sedentarianino" onchange="sumar_fisicanino();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
+                                if ($sedentarianino==$i) { 
                                  ?>
-                                 <option value="<?php echo $i;?>">
+                               <option value="<?php echo $i;?>" selected="selected">
+                                <?php } else { ?>
+                                <option value="<?php echo $i;?>">  
+                                <?php } ?>    
                                     <?php echo $i;?>
                                  </option>
                               <?php
@@ -617,8 +894,12 @@ if (isset ($_GET['nuhsa'])){
                           <select name="sedentariapadres" id="sedentariapadres" onchange="sumar_fisicapadres();"> 
                            <?php
                              for ($i=0;$i<11;$i++) {
+                                if ($sedentariapadres==$i) { 
                                  ?>
-                                 <option value="<?php echo $i;?>">
+                              <option value="<?php echo $i;?>" selected="selected">
+                                <?php } else { ?>
+                                <option value="<?php echo $i;?>">
+                                <?php } ?>    
                                     <?php echo $i;?>
                                  </option>
                               <?php
@@ -668,8 +949,12 @@ if (isset ($_GET['nuhsa'])){
                           <select name="humornino" id="humornino"> 
                             <?php
                              foreach ($listacambios as $lcambio) {
+                               if ($humornino==$lcambio->getValueEncoded('COD')) { 
                             ?>
                               <option value="<?php echo $lcambio->getValueEncoded('COD')?>" selected="selected">
+                               <?php } else { ?>
+                              <option value="<?php echo $lcambio->getValueEncoded('COD')?>"> 
+                               <?php } ?>    
                               <?php echo (($lcambio->getValueEncoded('CAMBIO')))?></option>
                             <?php
                                  }     
@@ -680,8 +965,12 @@ if (isset ($_GET['nuhsa'])){
                            <select name="humorpadres" id="humorpadres"> 
                             <?php
                              foreach ($listacambios as $lcambio) {
+                               if ($humorpadres=$lcambio->getValueEncoded('COD')) { 
                             ?>
                               <option value="<?php echo $lcambio->getValueEncoded('COD')?>" selected="selected">
+                               <?php } else { ?>
+                              <option value="<?php echo $lcambio->getValueEncoded('COD')?>">   
+                               <?php } ?>    
                               <?php echo (($lcambio->getValueEncoded('CAMBIO')))?></option>
                             <?php
                                  }     
@@ -697,8 +986,12 @@ if (isset ($_GET['nuhsa'])){
                           <select name="escolarnino" id="escolarnino"> 
                             <?php
                              foreach ($listacambios as $lcambio) {
+                               if ($escolarnino=$lcambio->getValueEncoded('COD')) { 
                             ?>
                               <option value="<?php echo $lcambio->getValueEncoded('COD')?>" selected="selected">
+                               <?php } else { ?>
+                               <option value="<?php echo $lcambio->getValueEncoded('COD')?>">  
+                               <?php } ?>    
                               <?php echo (($lcambio->getValueEncoded('CAMBIO')))?></option>
                             <?php
                                  }     
