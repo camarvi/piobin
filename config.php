@@ -7,7 +7,7 @@
 //define("DB_DSN","mysql:host=10.8.65.9;dbname=SUCESOS");
 //define("DB_DSN","mysql:dbname=web");
    
-
+     
 
 // CONEXION AL SERVIDOR SQL SERVER
 

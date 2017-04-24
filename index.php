@@ -79,49 +79,60 @@ if (isset ($_GET['nuhsa'])){
        $an=$fichapiobin->getValue('AN');
        $centro=$fichapiobin->getValue('CENTRO');
        $cnp=$fichapiobin->getValue('CNP');
-       $fecha=$fichapiobin->getValue('FECHA');
-       $tiempo=$fichapiobin->getValue('tiempo');
-       $fdiagnostico=$fichapiobin->getValue('fdiagnostico');
-       $imc_diagnostico=$fichapiobin->getValue('imc_diagnostico');
-       $desviacion_diagnostico=$fichapiobin->getValue('desviacion_diagnostico');
-       $fevaluacion=$fichapiobin->getValue('fevaluacion');
-       $imc_evaluacion=$fichapiobin->getValue('imc_evaluacion');
-       $desviacion_evaluacion=$fichapiobin->getValue('desviacion_evaluacion');
-       $frutanino= $fichapiobin->getValue('frutanino');
-       $frutapadres= $fichapiobin->getValue('frutapadres');
-       $verduranino= $fichapiobin->getValue('verduranino');
-       $verdurapadres= $fichapiobin->getValue('verdurapadres');
-       $horasnino= $fichapiobin->getValue('horasnino');
-       $horaspadres= $fichapiobin->getValue('horaspadres');
-       $grasasnino= $fichapiobin->getValue('grasasnino');
-       $grasaspadres= $fichapiobin->getValue('grasaspadres');
-       $dulcesnino= $fichapiobin->getValue('dulcesnino');
-       $dulcespadres= $fichapiobin->getValue('dulcespadres');
-       $bebidasnino= $fichapiobin->getValue('bebidasnino');
-       $bebidaspadres= $fichapiobin->getValue('bebidaspadres');
-       $deportenino= $fichapiobin->getValue('deportenino');
-       $deportepadres= $fichapiobin->getValue('deportepadres');
-       $juegonino= $fichapiobin->getValue('juegonino');
-       $juegopadres= $fichapiobin->getValue('juegopadres');
-       $movimientonino= $fichapiobin->getValue('movimientonino');
-       $movimientopadres= $fichapiobin->getValue('movimientopadres');
-       $sedentarianino= $fichapiobin->getValue('sedentarianino');
-       $sedentariapadres= $fichapiobin->getValue('sedentariapadres');
-       $humornino= $fichapiobin->getValue('humornino');
-       $humorpadres= $fichapiobin->getValue('humorpadres');
-       $escolarnino= $fichapiobin->getValue('escolarnino');
-       $escolarpadres= $fichapiobin->getValue('escolarpadres');
-       $socialnino= $fichapiobin->getValue('socialnino');
-       $socialpadres= $fichapiobin->getValue('socialpadres');
-       $deseonino= $fichapiobin->getValue('deseonino');
-       $deseopadres= $fichapiobin->getValue('deseopadres');
-       $pesomadre= $fichapiobin->getValue('pesomadre');
-       $pesopadre= $fichapiobin->getValue('pesopadre');
-       $actividad_madre= $fichapiobin->getValue('actividad_madre');
-       $actividad_padre= $fichapiobin->getValue('actividad_padre');
-       $refuerzo_pos= $fichapiobin->getValue('refuerzo_pos');
        
+       $fecha_inter=$fichapiobin->getValue('FECHA');
+       $fecha=(strtotime($fecha_inter));
+       $fecha=date("d/m/Y",$fecha);
+       $tiempo=$fichapiobin->getValue('TIEMPO');
+       $fdiagnostico_int=$fichapiobin->getValue('FDIAGNOSTICO');
+       $fdiagnostico=date('d/m/Y',strtotime($fdiagnostico_int));
        
+       $imc_diagnostico=$fichapiobin->getValue('IMC_DIAGNOSTICO');
+       $desviacion_diagnostico=$fichapiobin->getValue('DESVIACION_DIAGNOSTICO');
+       
+       $fevaluacion_inter=$fichapiobin->getValue('FEVALUACION');
+       $fevaluacion=date('d/m/Y',strtotime($fevaluacion_inter));
+       if (trim($fevaluacion)=='01/01/1970'){
+           $fevaluacion="";
+       }
+       
+       $imc_evaluacion=$fichapiobin->getValue('IMC_EVALUACION');
+       $desviacion_evaluacion=$fichapiobin->getValue('DESVIACION_EVALUACION');
+       $frutanino= $fichapiobin->getValue('FRUTANINO');
+       $frutapadres= $fichapiobin->getValue('FRUTAPADRES');
+       $verduranino= $fichapiobin->getValue('VERDURANINO');
+       $verdurapadres= $fichapiobin->getValue('VERDURAPADRES');
+       $horasnino= $fichapiobin->getValue('HORASNINO');
+       $horaspadres= $fichapiobin->getValue('HORASPADRES');
+       $grasasnino= $fichapiobin->getValue('GRASASNINO');
+       $grasaspadres= $fichapiobin->getValue('GRASASPADRES');
+       $dulcesnino= $fichapiobin->getValue('DULCESNINO');
+       $dulcespadres= $fichapiobin->getValue('DULCESPADRES');
+       $bebidasnino= $fichapiobin->getValue('BEBIDASNINO');
+       $bebidaspadres= $fichapiobin->getValue('BEBIDASPADRES');
+       $deportenino= $fichapiobin->getValue('DEPORTENINO');
+       $deportepadres= $fichapiobin->getValue('DEPORTEPADRES');
+       $juegonino= $fichapiobin->getValue('JUEGONINO');
+       $juegopadres= $fichapiobin->getValue('JUEGOPADRES');
+       $movimientonino= $fichapiobin->getValue('MOVIMIENTONINO');
+       $movimientopadres= $fichapiobin->getValue('MOVIMIENTOPADRES');
+       $sedentarianino= $fichapiobin->getValue('SEDENTARIANINO');
+       $sedentariapadres= $fichapiobin->getValue('SEDENTARIAPADRES');
+       $humornino= $fichapiobin->getValue('HUMORNINO');
+       $humorpadres= $fichapiobin->getValue('HUMORPADRES');
+       $escolarnino= $fichapiobin->getValue('ESCOLARNINO');
+       $escolarpadres= $fichapiobin->getValue('ESCOLARPADRES');
+       $socialnino= $fichapiobin->getValue('SOCIALNINO');
+       $socialpadres= $fichapiobin->getValue('SOCIALPADRES');
+       $deseonino= $fichapiobin->getValue('DESEONINO');
+       $deseopadres= $fichapiobin->getValue('DESEOPADRES');
+       $pesomadre= $fichapiobin->getValue('PESOMADRE');
+       $pesopadre= $fichapiobin->getValue('PESOPADRE');
+       $actividad_madre= $fichapiobin->getValue('ACTIVIDAD_MADRE');
+       $actividad_padre= $fichapiobin->getValue('ACTIVIDAD_PADRE');
+       $refuerzo_pos= $fichapiobin->getValue('REFUERZO_POS');
+       
+            
         
     }
 }
@@ -230,7 +241,7 @@ if (isset ($_GET['nuhsa'])){
           
     if (is_null($fichapiobin)) {
        $cod=0;
-        $fecha='';
+       $fecha='';
        $tiempo='';
        $fdiagnostico='';
        $imc_diagnostico='';
@@ -350,6 +361,68 @@ if (isset ($_GET['nuhsa'])){
  <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
 
  <script type="text/javascript" src="js/funciones.js"></script>
+ <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+ 
+ 
+ <script type="text/javascript">
+     
+     
+     $('document').ready(function(){
+         $('#modificar').click(function(){
+            $cod=$('#cod').val();
+            $fecha=$('#fecha').val();
+            $tiempo=$('#tiempo').val();
+            $fdiagnostico=$('#fdiagnostico').val();
+            $imc_diagnostico=$('#imc_diagnostico').val();
+            $desviacion_diagnostico=$('#desviacion_diagnostico').val();
+            $fevaluacion=$('#fevaluacion').val();
+            $imc_evaluacion=$('#imc_evaluacion').val();
+            $desviacion_evaluacion=$('#desviacion_evaluacion').val();
+            $frutanino= $('#frutanino').val();
+            $frutapadres= $('#frutapadres').val();
+            $verduranino= $('#verduranino').val();
+            $verdurapadres= $('#verdurapadres').val();
+            $horasnino= $('#horasnino').val();
+            $horaspadres= $('#horaspadres').val();
+            $grasasnino= $('#fgrasasnino').val();
+            $grasaspadres= $('#grasaspadres').val();
+            $dulcesnino= $('#dulcesnino').val();
+            $dulcespadres= $('#dulcespadres').val();
+            $bebidasnino= $('#bebidasnino').val();
+            $bebidaspadres= $('#bebidaspadres').val();
+            $deportenino= $('#deportenino').val();
+            $deportepadres= $('#deportepadres').val();
+            $juegonino= $('#juegonino').val();
+            $juegopadres= $('#juegopadres').val();
+            $movimientonino= $('#movimientonino').val();
+            $movimientopadres= $('#movimientopadres').val();
+            $sedentarianino= $('#sedentarianino').val();
+            $sedentariapadres= $('#sedentariapadres').val();
+            $humornino= $('#humornino').val();
+            $humorpadres= $('#humorpadres').val();
+            $escolarnino= $('#escolarnino').val();
+            $escolarpadres= $('#escolarpadres').val();
+            $socialnino= $('#socialnino').val();
+            $socialpadres= $('#socialpadres').val();
+            $deseonino= $('#deseonino').val();
+            $deseopadres= $('#deseopadres').val();
+            $pesomadre= $('#pesomadre').val();
+            $pesopadre= $('#pesopadre').val();
+            $actividad_madre= $('#actividad_madre').val();
+            $actividad_padre= $('#actividad_padre').val();
+            $refuerzo_pos= $('#refuerzo_pos').val(); 
+         });
+         
+     });
+     
+     
+ </script>    
+ 
+ 
+ 
+ 
+ 
+ 
  
  <script type="text/javascript" >
  
@@ -398,7 +471,8 @@ if (isset ($_GET['nuhsa'])){
          
             <div class="datos_personales">
                <label>FECHA:</label> 
-               <input type="text" id="fecha" name="fecha" size="10" onblur="valida_fecha(this.value)" value="<?php echo date('d/m/Y'); ?>"/> 
+               <input type="text" id="fecha" name="fecha" size="10" onblur="valida_fecha(this.value)" 
+                      value="<?php if ($cod>0) { echo $fecha; } else { echo date('d/m/Y');} ?>"/> 
             </div>
             
             <div class="datos_personales">
@@ -439,17 +513,13 @@ if (isset ($_GET['nuhsa'])){
                            <input type="text" id="fdiagnostico" name="fdiagnostico" size="10" onblur="valida_fecha(this.value)" 
                                   value="<?php      
                                     if ($cod>0) {
-                                    echo $fichapiobin->getValue('fdiagnostico');
+                                    echo $fdiagnostico;
                                     } else {
                                     echo date('d/m/Y');} ?>"/> 
                         </td>
                         <td>
                            <input type="text" id="imc_diagnostico" name="imc_diagnostico" size="10"
-                             value="<?php      
-                                 if ($cod>0) {
-                                   echo $fichapiobin->getValue('imc_diagnostico');
-                                 }   
-                             ?>"/> 
+                             value="<?php  echo $imc_diagnostico;?>"/> 
                         </td>
                         <td>
                            <input type="text" id="desviacion_diagnostico" name="desviacion_diagnostico" size="10"
@@ -472,7 +542,7 @@ if (isset ($_GET['nuhsa'])){
                         </td>
                         <td>
                            <input type="text" id="desviacion_evaluacion" name="desviacion_evaluacion" size="10"
-                                  value="<?php echo $fichapiobin->getValue('desviacion_evaluacion');?>"/> 
+                                  value="<?php echo $desviacion_evaluacion;?>"/> 
                         </td>
                     </tr>
                     <tr colspan="4">Nota: Utilizar la tabla de IMC para valoraci&oacute;n</tr>
@@ -913,13 +983,20 @@ if (isset ($_GET['nuhsa'])){
                         </td>
                     </tr>
           
+                    <?php $totalfisicanino=$deportenino+$juegonino+$movimientonino+$sedentarianino; 
+                          $totalfisicapadres=$deportepadres+$juegopadres+$movimientopadres+$sedentariapadres; 
+                    ?>
+               
+                    
                     <tr>
                         <th scope="row">Valoraci&oacute;n Total</th>
                        <td>
-                           <input type="text" id="totalfisicanino" name="totalfisicanino" size="10" readonly="readonly"/> 
+                           <input type="text" id="totalfisicanino" name="totalfisicanino" size="10" readonly="readonly"
+                                 value="<?php echo $totalfisicanino; ?>" /> 
                         </td>
                         <td>
-                           <input type="text" id="totalfisicapadres" name="totalfisicapadres" size="10" readonly="readonly"/> 
+                           <input type="text" id="totalfisicapadres" name="totalfisicapadres" size="10" readonly="readonly"
+                                value="<?php echo $totalfisicapadres; ?>"  /> 
                         </td>
                     </tr>
                     
@@ -1165,10 +1242,15 @@ if (isset ($_GET['nuhsa'])){
           
            </fieldset>         
            
+          <?php  if ($cod>0) { ?>
             <button type="submit" id="registar" name="registrar" class="botoncentrado" onClick="window.print()">
                  Registrar
              </button>
-           
+          <?php } else { ?> 
+             <button type="button" id="modificar" name="modificar" value="modificar" class="botoncentrado">
+                 Modificar
+             </button>
+          <?php } ?>
        </form>    
     
     
