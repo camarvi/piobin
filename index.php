@@ -723,7 +723,9 @@ if (isset ($_GET['nuhsa'])){
                            </select>   
                         </td>
                     </tr>
-                    <?php $totalnino=$frutanino+$verduranino+$horasnino+$grasasnino+$dulcesnino+$bebidasnino; ?>
+                    <?php $totalnino=$frutanino+$verduranino+$horasnino+$grasasnino+$dulcesnino+$bebidasnino; 
+                          $totalpadres=$frutapadres+$verdurapadres+$horaspadres+$grasaspadres+$dulcespadres+$bebidaspadres; 
+                    ?>
                     <tr>
                         <th scope="row">Valoraci&oacute;n Total</th>
                        <td>
@@ -731,7 +733,8 @@ if (isset ($_GET['nuhsa'])){
                                value="<?php echo $totalnino; ?>"   /> 
                         </td>
                         <td>
-                            <input type="text" id="totalpadres" name="totalpadres" size="10" readonly="readonly"/> 
+                            <input type="text" id="totalpadres" name="totalpadres" size="10" readonly="readonly"
+                               value="<?php echo $totalpadres; ?>"    /> 
                         </td>
                     </tr>
                     
@@ -965,7 +968,7 @@ if (isset ($_GET['nuhsa'])){
                            <select name="humorpadres" id="humorpadres"> 
                             <?php
                              foreach ($listacambios as $lcambio) {
-                               if ($humorpadres=$lcambio->getValueEncoded('COD')) { 
+                               if ($humorpadres==$lcambio->getValueEncoded('COD')) { 
                             ?>
                               <option value="<?php echo $lcambio->getValueEncoded('COD')?>" selected="selected">
                                <?php } else { ?>
@@ -986,7 +989,7 @@ if (isset ($_GET['nuhsa'])){
                           <select name="escolarnino" id="escolarnino"> 
                             <?php
                              foreach ($listacambios as $lcambio) {
-                               if ($escolarnino=$lcambio->getValueEncoded('COD')) { 
+                               if ($escolarnino==$lcambio->getValueEncoded('COD')) { 
                             ?>
                               <option value="<?php echo $lcambio->getValueEncoded('COD')?>" selected="selected">
                                <?php } else { ?>
@@ -1003,8 +1006,12 @@ if (isset ($_GET['nuhsa'])){
                            <select name="escolarpadres" id="escolarpadres"> 
                             <?php
                              foreach ($listacambios as $lcambio) {
+                                if ($escolarpadres==$lcambio->getValueEncoded('COD')) {
                             ?>
                               <option value="<?php echo $lcambio->getValueEncoded('COD')?>" selected="selected">
+                                <?php } else { ?> 
+                                 <option value="<?php echo $lcambio->getValueEncoded('COD')?>">
+                                <?php } ?>     
                               <?php echo (($lcambio->getValueEncoded('CAMBIO')))?></option>
                             <?php
                                  }     
@@ -1021,8 +1028,12 @@ if (isset ($_GET['nuhsa'])){
                           <select name="socialnino" id="socialnino"> 
                             <?php
                              foreach ($listacambios as $lcambio) {
+                                if ($socialnino==$lcambio->getValueEncoded('COD')) {
                             ?>
                               <option value="<?php echo $lcambio->getValueEncoded('COD')?>" selected="selected">
+                                <?php } else { ?>
+                                 <option value="<?php echo $lcambio->getValueEncoded('COD')?>">
+                                <?php } ?> 
                               <?php echo (($lcambio->getValueEncoded('CAMBIO')))?></option>
                             <?php
                                  }     
@@ -1034,8 +1045,12 @@ if (isset ($_GET['nuhsa'])){
                            <select name="socialpadres" id="socialpadres"> 
                             <?php
                              foreach ($listacambios as $lcambio) {
+                               if ($socialpadres==$lcambio->getValueEncoded('COD')) { 
                             ?>
                               <option value="<?php echo $lcambio->getValueEncoded('COD')?>" selected="selected">
+                               <?php } else { ?>
+                               <option value="<?php echo $lcambio->getValueEncoded('COD')?>">   
+                               <?php  } ?>    
                               <?php echo (($lcambio->getValueEncoded('CAMBIO')))?></option>
                             <?php
                                  }     
@@ -1051,8 +1066,12 @@ if (isset ($_GET['nuhsa'])){
                           <select name="deseonino" id="deseonino"> 
                             <?php
                              foreach ($listacambios as $lcambio) {
+                               if ($deseonino==$lcambio->getValueEncoded('COD'))  {
                             ?>
                               <option value="<?php echo $lcambio->getValueEncoded('COD')?>" selected="selected">
+                               <?php } else { ?>  
+                               <option value="<?php echo $lcambio->getValueEncoded('COD')?>">    
+                               <?php } ?>    
                               <?php echo (($lcambio->getValueEncoded('CAMBIO')))?></option>
                             <?php
                                  }     
@@ -1064,8 +1083,12 @@ if (isset ($_GET['nuhsa'])){
                           <select name="deseopadres" id="deseopadres"> 
                             <?php
                              foreach ($listacambios as $lcambio) {
+                               if ($deseopadres==$lcambio->getValueEncoded('COD'))  {
                             ?>
                               <option value="<?php echo $lcambio->getValueEncoded('COD')?>" selected="selected">
+                               <?php } else { ?>
+                               <option value="<?php echo $lcambio->getValueEncoded('COD')?>">  
+                               <?php } ?>    
                               <?php echo (($lcambio->getValueEncoded('CAMBIO')))?></option>
                             <?php
                                  }     
@@ -1083,35 +1106,60 @@ if (isset ($_GET['nuhsa'])){
             <div class="datos_personales">
               <label>Peso de la madre:</label> 
                 <select name="pesomadre" id="centro" name="pesomadre"> 
-                    <option value="0">No cambio</option>
+                    <?php if ($pesomadre==0) { ?>
+                    <option value="0" selected="selected">No cambio</option>
                     <option value="1">Dismunici&oacute;n</option>
+                    <?php } else { ?>
+                      <option value="0">No cambio</option>
+                      <option value="1" selected="selected">Dismunici&oacute;n</option> 
+                    <?php } ?>  
                 </select>  
               
               <label>Peso del padre:</label> 
                 <select name="pesopadre" id="centro" name="pesopadre"> 
-                    <option value="0">No cambio</option>
+                    <?php if ($pesopadre==0)  { ?>
+                    <option value="0" selected="selected">No cambio</option>
                     <option value="1">Dismunici&oacute;n</option>
+                    <?php } else { ?> 
+                     <option value="0">No cambio</option>
+                     <option value="1" selected="selected">Dismunici&oacute;n</option>
+                    <?php } ?> 
                 </select>  
             </div>  
             
               <label>Act. F&iacute;sica madre:</label> 
                 <select name="actividad_madre" id="centro" name="actividad_madre"> 
-                    <option value="0">No cambio</option>
+                   <?php if ($pesomadre==0) { ?> 
+                    <option value="0" selected="selected">No cambio</option>
                     <option value="1">Aumento</option>
+                   <?php } else { ?>
+                    <option value="0">No cambio</option>
+                    <option value="1" selected="selected">Aumento</option>
+                   <?php } ?> 
                 </select>  
               
               <label>Act. F&iacute;sica padre:</label> 
                 <select name="actividad_padre" id="centro" name="actividad_padre"> 
-                    <option value="0">No cambio</option>
+                   <?php if ($actividad_padre==0) { ?> 
+                    <option value="0" selected="selected">No cambio</option>
                     <option value="1">Aumento</option>
+                   <?php } else { ?>
+                     <option value="0">No cambio</option>
+                    <option value="1" selected="selected">Aumento</option>
+                   <?php } ?>  
                 </select>  
               
              </div> 
              <div class="datos_personales">  
               <label>Refuerzo positivo proporcionado a su hijo/a por los cambios:</label>
                <select name="refuerzo_pos" id="centro" name="refuerzo_pos"> 
-                    <option value="0">No</option>
+                  <?php if ($refuerzo_pos==0) { ?> 
+                    <option value="0" selected="selected">No</option>
                     <option value="1">Si</option>
+                  <?php } else { ?>   
+                    <option value="0">No</option>
+                    <option value="1" selected="selected">Si</option>
+                  <?php } ?>  
                 </select>  
              </div>
           
