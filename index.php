@@ -364,12 +364,55 @@ if (isset ($_GET['nuhsa'])){
  <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
  
  
+ 
+ <script type="text/javascript" >
+ 
+
+function valida_fecha(fecha) {
+ 
+    //var expresion_fecha=/^\d{2}-\d{2}-\d{4}$/;
+    var expresion_fecha2=/^([0][1-9]|[12][0-9]|3[01])(\/|-)([0][1-9]|[1][0-2])\2(\d{4})$/;
+    var vfecha=fecha;
+    //var vemail=document.getElementById("email").value;
+    
+    var longitud=vfecha.length;
+     
+    if (longitud>0) { 
+     if (expresion_fecha2.test(vfecha)==false){
+        alert("FECHA NO VALIDA");  
+        return false;
+     
+      } 
+  }
+ 
+ }
+ 
+
+
+function valida_decimales(numero) {
+   
+   var expresion_fecha2=/^[0-9]+([.][0-9]+)?$/;
+   var vnumero=numero;
+   
+    if (expresion_fecha2.test(vnumero)==false){
+        alert("LOS NUMEROS SE PONEN CON PUNTO");  
+        return false;
+     
+      } 
+    
+    
+}
+ 
+ 
+</script>
+
+ 
+ 
+ 
  <script type="text/javascript">
-     
-     
-     $('document').ready(function(){
-         $('#modificar').click(function(){
-            var cod=$('#cod').val();
+    $('document').ready(function(){
+       $('#modificar').click(function(){
+           var cod=$('#cod').val();
             var fecha=$('#fecha').val();
             var tiempo=$('#tiempo').val();
             var fdiagnostico=$('#fdiagnostico').val();
@@ -384,7 +427,7 @@ if (isset ($_GET['nuhsa'])){
             var verdurapadres= $('#verdurapadres').val();
             var horasnino= $('#horasnino').val();
             var horaspadres= $('#horaspadres').val();
-            var grasasnino= $('#fgrasasnino').val();
+            var grasasnino= $('#grasasnino').val();
             var grasaspadres= $('#grasaspadres').val();
             var dulcesnino= $('#dulcesnino').val();
             var dulcespadres= $('#dulcespadres').val();
@@ -411,8 +454,8 @@ if (isset ($_GET['nuhsa'])){
             var actividad_madre= $('#actividad_madre').val();
             var actividad_padre= $('#actividad_padre').val();
             var refuerzo_pos= $('#refuerzo_pos').val(); 
-            
-            jQuery.post("modificar.php",{
+            alert ('DATOS PASADOS')
+         $.post("modificar.php",{
                 cod:cod,
                 fecha:fecha,
                 tiempo:tiempo,
@@ -428,7 +471,7 @@ if (isset ($_GET['nuhsa'])){
                 verdurapadres:verdurapadres,
                 horasnino:horasnino,
                 horaspadres:horaspadres,
-                grasasnino:fgrasasnino,
+                grasasnino:grasasnino,
                 grasaspadres:grasaspadres,
                 dulcesnino:dulcesnino,
                 dulcespadres:dulcespadres,
@@ -454,65 +497,18 @@ if (isset ($_GET['nuhsa'])){
                 pesopadre:pesopadre,
                 actividad_madre:actividad_madre,
                 actividad_padre:actividad_padre,
-                refuerzo_pos:refuerzo_pos
-                
-            }, function(data,textStatus){
-               
-                    alert ("Datos Modificados");
-                }
-                
-            });
-         });
-         
-     });
+                refuerzo_pos:refuerzo_pos});
+       });
+       
+    });   
      
+   
      
  </script>    
  
  
  
  
- 
- 
- 
- <script type="text/javascript" >
- 
-
-function valida_decimales(numero) {
-   
-   var expresion_fecha2=^[0-9]+([.][0-9]+)?$;
-   var vnumero=numero;
-   
-    if (expresion_fecha2.test(vnumero)==false){
-        alert("LOS NUMEROS SE PONEN CON PUNTO");  
-        return false;
-     
-      } 
-    
-    
-}
- 
- function valida_fecha(fecha) {
- 
-    //var expresion_fecha=/^\d{2}-\d{2}-\d{4}$/;
-    var expresion_fecha2=/^([0][1-9]|[12][0-9]|3[01])(\/|-)([0][1-9]|[1][0-2])\2(\d{4})$/;
-    var vfecha=fecha;
-    //var vemail=document.getElementById("email").value;
-    
-    var longitud=vfecha.length;
-     
-    if (longitud>0) { 
-     if (expresion_fecha2.test(vfecha)==false){
-        alert("FECHA NO VALIDA");  
-        return false;
-     
-      } 
-  }
- 
- }
- 
-</script>
-
 
 </head>
     
@@ -593,7 +589,7 @@ function valida_decimales(numero) {
                     <tr>
                         <th scope="row">Evaluaci&oacute;n</th>
                         <td>
-                           <input type="text" id="fevaluacion" name="fevaluacion" size="10" onblur="valida_decimales(this.value)" 
+                           <input type="text" id="fevaluacion" name="fevaluacion" size="10" onblur="valida_fecha(this.value)" 
                                   value="<?php 
                                    if ($cod>0) {
                                    echo $fevaluacion;
@@ -601,7 +597,7 @@ function valida_decimales(numero) {
                                  echo date('d/m/Y');} ?>"/> 
                         </td>
                         <td>
-                           <input type="text" id="imc_evaluacion" name="imc_evaluacion" size="10" onblur="valida_fecha(this.value)"
+                           <input type="text" id="imc_evaluacion" name="imc_evaluacion" size="10" onblur="valida_decimales(this.value)"
                                    value="<?php  echo $imc_evaluacion; ?>"/> 
                         </td>
                         <td>
@@ -1306,7 +1302,7 @@ function valida_decimales(numero) {
           
            </fieldset>         
            
-          <?php  if ($cod>0) { ?>
+          <?php  if ($cod<1) { ?>
             <button type="submit" id="registar" name="registrar" class="botoncentrado" onClick="window.print()">
                  Registrar
              </button>

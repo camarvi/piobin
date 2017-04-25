@@ -20,14 +20,24 @@ require_once ("common.inc.php");
   $anio1=trim($separar1[2]);
   $fdiagnosticook=$anio1 . "-" . $mes1 . "-" . $dia1;
   
+  if (strlen($fdiagnosticook)<3) {
+      
+     $fdiagnosticook=null; 
+      
+  }
+  
   $separar2 =explode('/',$_POST["fevaluacion"]);
   $dia2=trim($separar2[0]);
   $mes2=trim($separar2[1]);
   $anio2=trim($separar2[2]);
   $fevaluacionok=$anio2 . "-" . $mes2 . "-" . $dia2;
+  
+  if (strlen($fevaluacionok)<3) {
+     $fevaluacionok=null; 
+  }
 
 $modificafichapiobin=new FichaPiobin(array(
-        
+              
         "COD"=>$_POST['cod'],
         "AN"=>$_POST['an'],
         "CENTRO"=>$_POST['centro'],
@@ -78,7 +88,7 @@ $modificafichapiobin=new FichaPiobin(array(
  
     $modificafichapiobin->modifica_ficha();
 
-
+  
 
 
 ?>
