@@ -369,48 +369,99 @@ if (isset ($_GET['nuhsa'])){
      
      $('document').ready(function(){
          $('#modificar').click(function(){
-            $cod=$('#cod').val();
-            $fecha=$('#fecha').val();
-            $tiempo=$('#tiempo').val();
-            $fdiagnostico=$('#fdiagnostico').val();
-            $imc_diagnostico=$('#imc_diagnostico').val();
-            $desviacion_diagnostico=$('#desviacion_diagnostico').val();
-            $fevaluacion=$('#fevaluacion').val();
-            $imc_evaluacion=$('#imc_evaluacion').val();
-            $desviacion_evaluacion=$('#desviacion_evaluacion').val();
-            $frutanino= $('#frutanino').val();
-            $frutapadres= $('#frutapadres').val();
-            $verduranino= $('#verduranino').val();
-            $verdurapadres= $('#verdurapadres').val();
-            $horasnino= $('#horasnino').val();
-            $horaspadres= $('#horaspadres').val();
-            $grasasnino= $('#fgrasasnino').val();
-            $grasaspadres= $('#grasaspadres').val();
-            $dulcesnino= $('#dulcesnino').val();
-            $dulcespadres= $('#dulcespadres').val();
-            $bebidasnino= $('#bebidasnino').val();
-            $bebidaspadres= $('#bebidaspadres').val();
-            $deportenino= $('#deportenino').val();
-            $deportepadres= $('#deportepadres').val();
-            $juegonino= $('#juegonino').val();
-            $juegopadres= $('#juegopadres').val();
-            $movimientonino= $('#movimientonino').val();
-            $movimientopadres= $('#movimientopadres').val();
-            $sedentarianino= $('#sedentarianino').val();
-            $sedentariapadres= $('#sedentariapadres').val();
-            $humornino= $('#humornino').val();
-            $humorpadres= $('#humorpadres').val();
-            $escolarnino= $('#escolarnino').val();
-            $escolarpadres= $('#escolarpadres').val();
-            $socialnino= $('#socialnino').val();
-            $socialpadres= $('#socialpadres').val();
-            $deseonino= $('#deseonino').val();
-            $deseopadres= $('#deseopadres').val();
-            $pesomadre= $('#pesomadre').val();
-            $pesopadre= $('#pesopadre').val();
-            $actividad_madre= $('#actividad_madre').val();
-            $actividad_padre= $('#actividad_padre').val();
-            $refuerzo_pos= $('#refuerzo_pos').val(); 
+            var cod=$('#cod').val();
+            var fecha=$('#fecha').val();
+            var tiempo=$('#tiempo').val();
+            var fdiagnostico=$('#fdiagnostico').val();
+            var imc_diagnostico=$('#imc_diagnostico').val();
+            var desviacion_diagnostico=$('#desviacion_diagnostico').val();
+            var fevaluacion=$('#fevaluacion').val();
+            var imc_evaluacion=$('#imc_evaluacion').val();
+            var desviacion_evaluacion=$('#desviacion_evaluacion').val();
+            var frutanino= $('#frutanino').val();
+            var frutapadres= $('#frutapadres').val();
+            var verduranino= $('#verduranino').val();
+            var verdurapadres= $('#verdurapadres').val();
+            var horasnino= $('#horasnino').val();
+            var horaspadres= $('#horaspadres').val();
+            var grasasnino= $('#fgrasasnino').val();
+            var grasaspadres= $('#grasaspadres').val();
+            var dulcesnino= $('#dulcesnino').val();
+            var dulcespadres= $('#dulcespadres').val();
+            var bebidasnino= $('#bebidasnino').val();
+            var bebidaspadres= $('#bebidaspadres').val();
+            var deportenino= $('#deportenino').val();
+            var deportepadres= $('#deportepadres').val();
+            var juegonino= $('#juegonino').val();
+            var juegopadres= $('#juegopadres').val();
+            var movimientonino= $('#movimientonino').val();
+            var movimientopadres= $('#movimientopadres').val();
+            var sedentarianino= $('#sedentarianino').val();
+            var sedentariapadres= $('#sedentariapadres').val();
+            var humornino= $('#humornino').val();
+            var humorpadres= $('#humorpadres').val();
+            var escolarnino= $('#escolarnino').val();
+            var escolarpadres= $('#escolarpadres').val();
+            var socialnino= $('#socialnino').val();
+            var socialpadres= $('#socialpadres').val();
+            var deseonino= $('#deseonino').val();
+            var deseopadres= $('#deseopadres').val();
+            var pesomadre= $('#pesomadre').val();
+            var pesopadre= $('#pesopadre').val();
+            var actividad_madre= $('#actividad_madre').val();
+            var actividad_padre= $('#actividad_padre').val();
+            var refuerzo_pos= $('#refuerzo_pos').val(); 
+            
+            jQuery.post("modificar.php",{
+                cod:cod,
+                fecha:fecha,
+                tiempo:tiempo,
+                fdiagnostico:fdiagnostico,
+                imc_diagnostico:imc_diagnostico,
+                desviacion_diagnostico:desviacion_diagnostico,
+                fevaluacion:fevaluacion,
+                imc_evaluacion:imc_evaluacion,
+                desviacion_evaluacion:desviacion_evaluacion,
+                frutanino:frutanino,
+                frutapadres:frutapadres,
+                verduranino:verduranino,
+                verdurapadres:verdurapadres,
+                horasnino:horasnino,
+                horaspadres:horaspadres,
+                grasasnino:fgrasasnino,
+                grasaspadres:grasaspadres,
+                dulcesnino:dulcesnino,
+                dulcespadres:dulcespadres,
+                bebidasnino:bebidasnino,
+                bebidaspadres:bebidaspadres,
+                deportenino:deportenino,
+                deportepadres:deportepadres,
+                juegonino:juegonino,
+                juegopadres:juegopadres,
+                movimientonino:movimientonino,
+                movimientopadres:movimientopadres,
+                sedentarianino:sedentarianino,
+                sedentariapadres:sedentariapadres,
+                humornino:humornino,
+                humorpadres:humorpadres,
+                escolarnino:escolarnino,
+                escolarpadres:escolarpadres,
+                socialnino:socialnino,
+                socialpadres:socialpadres,
+                deseonino:deseonino,
+                deseopadres:deseopadres,
+                pesomadre:pesomadre,
+                pesopadre:pesopadre,
+                actividad_madre:actividad_madre,
+                actividad_padre:actividad_padre,
+                refuerzo_pos:refuerzo_pos
+                
+            }, function(data,textStatus){
+               
+                    alert ("Datos Modificados");
+                }
+                
+            });
          });
          
      });
@@ -427,12 +478,25 @@ if (isset ($_GET['nuhsa'])){
  <script type="text/javascript" >
  
 
+function valida_decimales(numero) {
+   
+   var expresion_fecha2=^[0-9]+([.][0-9]+)?$;
+   var vnumero=numero;
+   
+    if (expresion_fecha2.test(vnumero)==false){
+        alert("LOS NUMEROS SE PONEN CON PUNTO");  
+        return false;
+     
+      } 
+    
+    
+}
  
  function valida_fecha(fecha) {
  
     //var expresion_fecha=/^\d{2}-\d{2}-\d{4}$/;
     var expresion_fecha2=/^([0][1-9]|[12][0-9]|3[01])(\/|-)([0][1-9]|[1][0-2])\2(\d{4})$/;
-     var vfecha=fecha;
+    var vfecha=fecha;
     //var vemail=document.getElementById("email").value;
     
     var longitud=vfecha.length;
@@ -518,18 +582,18 @@ if (isset ($_GET['nuhsa'])){
                                     echo date('d/m/Y');} ?>"/> 
                         </td>
                         <td>
-                           <input type="text" id="imc_diagnostico" name="imc_diagnostico" size="10"
+                           <input type="text" id="imc_diagnostico" name="imc_diagnostico" size="10" onblur="valida_decimales(this.value)"
                              value="<?php  echo $imc_diagnostico;?>"/> 
                         </td>
                         <td>
-                           <input type="text" id="desviacion_diagnostico" name="desviacion_diagnostico" size="10"
+                           <input type="text" id="desviacion_diagnostico" name="desviacion_diagnostico" size="10" onblur="valida_decimales(this.value)"
                                value="<?php echo $desviacion_diagnostico;?>" /> 
                         </td>
                     </tr>
                     <tr>
                         <th scope="row">Evaluaci&oacute;n</th>
                         <td>
-                           <input type="text" id="fevaluacion" name="fevaluacion" size="10" onblur="valida_fecha(this.value)" 
+                           <input type="text" id="fevaluacion" name="fevaluacion" size="10" onblur="valida_decimales(this.value)" 
                                   value="<?php 
                                    if ($cod>0) {
                                    echo $fevaluacion;
@@ -537,11 +601,11 @@ if (isset ($_GET['nuhsa'])){
                                  echo date('d/m/Y');} ?>"/> 
                         </td>
                         <td>
-                           <input type="text" id="imc_evaluacion" name="imc_evaluacion" size="10"
+                           <input type="text" id="imc_evaluacion" name="imc_evaluacion" size="10" onblur="valida_fecha(this.value)"
                                    value="<?php  echo $imc_evaluacion; ?>"/> 
                         </td>
                         <td>
-                           <input type="text" id="desviacion_evaluacion" name="desviacion_evaluacion" size="10"
+                           <input type="text" id="desviacion_evaluacion" name="desviacion_evaluacion" size="10" onblur="valida_decimales(this.value)"
                                   value="<?php echo $desviacion_evaluacion;?>"/> 
                         </td>
                     </tr>

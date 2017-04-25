@@ -8,19 +8,36 @@
 
 require_once ("common.inc.php");
 
+  $separar =explode('/',$_POST["fecha"]);
+  $dia=trim($separar[0]);
+  $mes=trim($separar[1]);
+  $anio=trim($separar[2]);
+  $fechaok=$anio . "-" . $mes . "-" . $dia;
+  
+  $separar1 =explode('/',$_POST["fdiagnostico"]);
+  $dia1=trim($separar1[0]);
+  $mes1=trim($separar1[1]);
+  $anio1=trim($separar1[2]);
+  $fdiagnosticook=$anio1 . "-" . $mes1 . "-" . $dia1;
+  
+  $separar2 =explode('/',$_POST["fevaluacion"]);
+  $dia2=trim($separar2[0]);
+  $mes2=trim($separar2[1]);
+  $anio2=trim($separar2[2]);
+  $fevaluacionok=$anio2 . "-" . $mes2 . "-" . $dia2;
 
 $modificafichapiobin=new FichaPiobin(array(
         
-        "COD"=>$cod,
-        "AN"=>$an,
-        "CENTRO"=>$centro,
-        "CNP"=>$cnp,
+        "COD"=>$_POST['cod'],
+        "AN"=>$_POST['an'],
+        "CENTRO"=>$_POST['centro'],
+        "CNP"=>$_POST['cnp'],
         "FECHA"=>$fechaok,
         "TIEMPO"=>$_POST["tiempo"],
         "FDIAGNOSTICO"=>$fdiagnosticook,
         "IMC_DIAGNOSTICO"=>$_POST["imc_diagnostico"],
         "DESVIACION_DIAGNOSTICO"=>$_POST["desviacion_diagnostico"],
-        "FEVALUACION"=>$fevaluacionsok,
+        "FEVALUACION"=>$fevaluacionok,
         "IMC_EVALUACION"=>$_POST["imc_evaluacion"],
         "DESVIACION_EVALUACION"=>$_POST["desviacion_evaluacion"],
         "FRUTANINO"=>$_POST["frutanino"],
@@ -56,8 +73,7 @@ $modificafichapiobin=new FichaPiobin(array(
         "ACTIVIDAD_MADRE"=>$_POST["actividad_madre"],
         "ACTIVIDAD_PADRE"=>$_POST["actividad_padre"],
         "REFUERZO_POS"=>$_POST["refuerzo_pos"],
-        "CERRADO"=>"",
-        "FECHA_FIN"=>""
+       
      ));
  
     $modificafichapiobin->modifica_ficha();
