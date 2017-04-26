@@ -186,7 +186,7 @@ class FichaPiobin  extends DataObject {
             $st->bindValue(":ACTIVIDAD_MADRE",$this->data["ACTIVIDAD_MADRE"], PDO::PARAM_INT);
             $st->bindValue(":ACTIVIDAD_PADRE",$this->data["ACTIVIDAD_PADRE"], PDO::PARAM_INT);
             $st->bindValue(":REFUERZO_POS",$this->data["REFUERZO_POS"], PDO::PARAM_INT);
-         
+            
 
             $st->execute();
             parent::disconnect($conn);

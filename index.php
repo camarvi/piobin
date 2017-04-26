@@ -347,9 +347,9 @@ if (isset ($_GET['nuhsa'])){
         
     }
      
-    $centro=$_GET['centro'];
+    $centro=$_POST['centro'];
     $an=$_POST['an'];
-    $cnp=$_GET['cnp'];
+    $cnp=$_POST['cnp'];
     
  
     ?>
