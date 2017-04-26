@@ -236,7 +236,7 @@ if (isset ($_GET['nuhsa'])){
  
     $fichapiobinusuario->nueva_ficha();
     
-    $fichapiobin= FichaPiobin::getPiobin($_POST['an']);
+    $fichapiobin= FichaPiobin::getPiobin($an);
      
           
     if (is_null($fichapiobin)) {
@@ -288,46 +288,46 @@ if (isset ($_GET['nuhsa'])){
        $centro=$fichapiobin->getValue('CENTRO');
        $cnp=$fichapiobin->getValue('CNP');
        $fecha=$fichapiobin->getValue('FECHA');
-       $tiempo=$fichapiobin->getValue('tiempo');
-       $fdiagnostico=$fichapiobin->getValue('fdiagnostico');
-       $imc_diagnostico=$fichapiobin->getValue('imc_diagnostico');
-       $desviacion_diagnostico=$fichapiobin->getValue('desviacion_diagnostico');
-       $fevaluacion=$fichapiobin->getValue('fevaluacion');
-       $imc_evaluacion=$fichapiobin->getValue('imc_evaluacion');
-       $desviacion_evaluacion=$fichapiobin->getValue('desviacion_evaluacion');
-       $frutanino= $fichapiobin->getValue('frutanino');
-       $frutapadres= $fichapiobin->getValue('frutapadres');
-       $verduranino= $fichapiobin->getValue('verduranino');
-       $verdurapadres= $fichapiobin->getValue('verdurapadres');
-       $horasnino= $fichapiobin->getValue('horasnino');
-       $horaspadres= $fichapiobin->getValue('horaspadres');
-       $grasasnino= $fichapiobin->getValue('grasasnino');
-       $grasaspadres= $fichapiobin->getValue('grasaspadres');
-       $dulcesnino= $fichapiobin->getValue('dulcesnino');
-       $dulcespadres= $fichapiobin->getValue('dulcespadres');
-       $bebidasnino= $fichapiobin->getValue('bebidasnino');
-       $bebidaspadres= $fichapiobin->getValue('bebidaspadres');
-       $deportenino= $fichapiobin->getValue('deportenino');
-       $deportepadres= $fichapiobin->getValue('deportepadres');
-       $juegonino= $fichapiobin->getValue('juegonino');
-       $juegopadres= $fichapiobin->getValue('juegopadres');
-       $movimientonino= $fichapiobin->getValue('movimientonino');
-       $movimientopadres= $fichapiobin->getValue('movimientopadres');
-       $sedentarianino= $fichapiobin->getValue('sedentarianino');
-       $sedentariapadres= $fichapiobin->getValue('sedentariapadres');
-       $humornino= $fichapiobin->getValue('humornino');
-       $humorpadres= $fichapiobin->getValue('humorpadres');
-       $escolarnino= $fichapiobin->getValue('escolarnino');
-       $escolarpadres= $fichapiobin->getValue('escolarpadres');
-       $socialnino= $fichapiobin->getValue('socialnino');
-       $socialpadres= $fichapiobin->getValue('socialpadres');
-       $deseonino= $fichapiobin->getValue('deseonino');
-       $deseopadres= $fichapiobin->getValue('deseopadres');
-       $pesomadre= $fichapiobin->getValue('pesomadre');
-       $pesopadre= $fichapiobin->getValue('pesopadre');
-       $actividad_madre= $fichapiobin->getValue('actividad_madre');
-       $actividad_padre= $fichapiobin->getValue('actividad_padre');
-       $refuerzo_pos= $fichapiobin->getValue('refuerzo_pos');
+       $tiempo=$fichapiobin->getValue('TIEMPO');
+       $fdiagnostico=$fichapiobin->getValue('FDIAGNOSTICO');
+       $imc_diagnostico=$fichapiobin->getValue('IMC_DIAGNOSTICO');
+       $desviacion_diagnostico=$fichapiobin->getValue('DESVIACION_DIAGNOSTICO');
+       $fevaluacion=$fichapiobin->getValue('FEVALUACION');
+       $imc_evaluacion=$fichapiobin->getValue('IMC_EVALUACION');
+       $desviacion_evaluacion=$fichapiobin->getValue('DESVIACION_EVALUACION');
+       $frutanino= $fichapiobin->getValue('FRUTANINO');
+       $frutapadres= $fichapiobin->getValue('FRUTAPADRES');
+       $verduranino= $fichapiobin->getValue('VERDURANINO');
+       $verdurapadres= $fichapiobin->getValue('VERDURAPADRES');
+       $horasnino= $fichapiobin->getValue('HORASNINO');
+       $horaspadres= $fichapiobin->getValue('HORASPADRES');
+       $grasasnino= $fichapiobin->getValue('GRASASNINO');
+       $grasaspadres= $fichapiobin->getValue('GRASASPADRES');
+       $dulcesnino= $fichapiobin->getValue('DULCESNINO');
+       $dulcespadres= $fichapiobin->getValue('DULCESPADRES');
+       $bebidasnino= $fichapiobin->getValue('BEBIDASNINO');
+       $bebidaspadres= $fichapiobin->getValue('BEBIDASPADRES');
+       $deportenino= $fichapiobin->getValue('DEPORTENINO');
+       $deportepadres= $fichapiobin->getValue('DEPORTEPADRES');
+       $juegonino= $fichapiobin->getValue('JUEGONINO');
+       $juegopadres= $fichapiobin->getValue('JUEGOPADRES');
+       $movimientonino= $fichapiobin->getValue('MOVIMIENTONINO');
+       $movimientopadres= $fichapiobin->getValue('MOVIMIENTOPADRES');
+       $sedentarianino= $fichapiobin->getValue('SEDENTARIANINO');
+       $sedentariapadres= $fichapiobin->getValue('SEDENTARIAPADRES');
+       $humornino= $fichapiobin->getValue('HUMORNINO');
+       $humorpadres= $fichapiobin->getValue('HUMORPADRES');
+       $escolarnino= $fichapiobin->getValue('ESCOLARNINO');
+       $escolarpadres= $fichapiobin->getValue('ESCOLARPADRES');
+       $socialnino= $fichapiobin->getValue('SOCIALNINO');
+       $socialpadres= $fichapiobin->getValue('SOCIALPADRES');
+       $deseonino= $fichapiobin->getValue('DESEONINO');
+       $deseopadres= $fichapiobin->getValue('DESEOPADRES');
+       $pesomadre= $fichapiobin->getValue('PESOMADRE');
+       $pesopadre= $fichapiobin->getValue('PESOPADRE');
+       $actividad_madre= $fichapiobin->getValue('ACTIVIDAD_MADRE');
+       $actividad_padre= $fichapiobin->getValue('ACTIVIDAD_PADRE');
+       $refuerzo_pos= $fichapiobin->getValue('REFUERZO_POS');
        
         
     }
@@ -690,13 +690,13 @@ function valida_decimales(numero) {
                         <td>
                           <select name="verdurapadres" id="verdurapadres" onchange="sumar_tpadres();"> 
                            <?php
-                             for ($i=0;$i<11;$i++) {
-                                if ($verdurapadres==$i){ 
+                              for ($i=0;$i<11;$i++) {
+                               if ($verdurapadres==$i)  {
                                  ?>
-                              <option value="<?php echo $i;?>" selected="selected">
-                                <?php } else { ?>   
-                              <option value="<?php echo $i;?>"></option>   
-                                <?php } ?>
+                                 <option value="<?php echo $i;?>" selected="selected">
+                               <?php } else { ?>
+                                 <option value="<?php echo $i;?>">  
+                               <?php } ?>     
                                     <?php echo $i;?>
                                  </option>
                               <?php
@@ -716,7 +716,7 @@ function valida_decimales(numero) {
                                  ?>
                                  <option value="<?php echo $i;?>" selected="selected">
                                <?php } else { ?>
-                                 <option value="<?php echo $i;?>" selected="selected">  
+                                 <option value="<?php echo $i;?>">  
                                <?php } ?>     
                                     <?php echo $i;?>
                                  </option>
