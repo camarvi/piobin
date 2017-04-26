@@ -454,7 +454,7 @@ function valida_decimales(numero) {
             var actividad_madre= $('#actividad_madre').val();
             var actividad_padre= $('#actividad_padre').val();
             var refuerzo_pos= $('#refuerzo_pos').val(); 
-            alert ('DATOS PASADOS')
+            
          $.post("modificar.php",{
                 cod:cod,
                 fecha:fecha,
@@ -497,7 +497,12 @@ function valida_decimales(numero) {
                 pesopadre:pesopadre,
                 actividad_madre:actividad_madre,
                 actividad_padre:actividad_padre,
-                refuerzo_pos:refuerzo_pos});
+                refuerzo_pos:refuerzo_pos},
+                function(data,estado){
+                   if (estado='succes'){
+                       alert ('Datos Modificados');
+                   } 
+                });
        });
        
     });   
@@ -1242,7 +1247,7 @@ function valida_decimales(numero) {
            <legend>5) MODIFICACIONES EN LOS PADRES.</legend>
             <div class="datos_personales">
               <label>Peso de la madre:</label> 
-                <select name="pesomadre" id="centro" name="pesomadre"> 
+                <select name="pesomadre" id="pesomadre" name="pesomadre"> 
                     <?php if ($pesomadre==0) { ?>
                     <option value="0" selected="selected">No cambio</option>
                     <option value="1">Dismunici&oacute;n</option>
@@ -1253,7 +1258,7 @@ function valida_decimales(numero) {
                 </select>  
               
               <label>Peso del padre:</label> 
-                <select name="pesopadre" id="centro" name="pesopadre"> 
+                <select name="pesopadre" id="pesopadre" name="pesopadre"> 
                     <?php if ($pesopadre==0)  { ?>
                     <option value="0" selected="selected">No cambio</option>
                     <option value="1">Dismunici&oacute;n</option>
@@ -1265,8 +1270,8 @@ function valida_decimales(numero) {
             </div>  
             
               <label>Act. F&iacute;sica madre:</label> 
-                <select name="actividad_madre" id="centro" name="actividad_madre"> 
-                   <?php if ($pesomadre==0) { ?> 
+                <select name="actividad_madre" id="actividad_madre" name="actividad_madre"> 
+                   <?php if ($actividad_madre==0) { ?> 
                     <option value="0" selected="selected">No cambio</option>
                     <option value="1">Aumento</option>
                    <?php } else { ?>
@@ -1276,7 +1281,7 @@ function valida_decimales(numero) {
                 </select>  
               
               <label>Act. F&iacute;sica padre:</label> 
-                <select name="actividad_padre" id="centro" name="actividad_padre"> 
+                <select name="actividad_padre" id="actividad_padre" name="actividad_padre"> 
                    <?php if ($actividad_padre==0) { ?> 
                     <option value="0" selected="selected">No cambio</option>
                     <option value="1">Aumento</option>
@@ -1289,7 +1294,7 @@ function valida_decimales(numero) {
              </div> 
              <div class="datos_personales">  
               <label>Refuerzo positivo proporcionado a su hijo/a por los cambios:</label>
-               <select name="refuerzo_pos" id="centro" name="refuerzo_pos"> 
+               <select name="refuerzo_pos" id="refuerzo_pos" name="refuerzo_pos"> 
                   <?php if ($refuerzo_pos==0) { ?> 
                     <option value="0" selected="selected">No</option>
                     <option value="1">Si</option>

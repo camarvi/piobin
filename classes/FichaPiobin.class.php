@@ -134,8 +134,8 @@ class FichaPiobin  extends DataObject {
 
         }
 
-    }
-     
+    }    
+          
          
   public function  modifica_ficha() {
 
@@ -145,6 +145,8 @@ class FichaPiobin  extends DataObject {
         try {
             $st=$conn->prepare($sql);
             $st->bindValue(":COD",$this->data["COD"], PDO::PARAM_STR);
+            $st->bindValue(":TIEMPO",$this->data["TIEMPO"], PDO::PARAM_STR);
+            $st->bindValue(":FECHA",$this->data["FECHA"], PDO::PARAM_STR);
             $st->bindValue(":FDIAGNOSTICO",$this->data["FDIAGNOSTICO"], PDO::PARAM_STR);
             $st->bindValue(":IMC_DIAGNOSTICO",$this->data["IMC_DIAGNOSTICO"], PDO::PARAM_STR);
             $st->bindValue(":DESVIACION_DIAGNOSTICO",$this->data["DESVIACION_DIAGNOSTICO"], PDO::PARAM_STR);
