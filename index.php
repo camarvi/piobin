@@ -288,11 +288,26 @@ if (isset ($_GET['nuhsa'])){
        $centro=$fichapiobin->getValue('CENTRO');
        $cnp=$fichapiobin->getValue('CNP');
        $fecha=$fichapiobin->getValue('FECHA');
+       $fecha=date('d/m/Y',strtotime($fecha));
+       if (trim($fecha)=='01/01/1970'){
+           $fecha="";
+       }
+       
        $tiempo=$fichapiobin->getValue('TIEMPO');
        $fdiagnostico=$fichapiobin->getValue('FDIAGNOSTICO');
+       $fdiagnostico=date('d/m/Y',strtotime($fdiagnostico));
+       if (trim($fdiagnostico)=='01/01/1970'){
+           $fdiagnostico="";
+       }
+       
        $imc_diagnostico=$fichapiobin->getValue('IMC_DIAGNOSTICO');
        $desviacion_diagnostico=$fichapiobin->getValue('DESVIACION_DIAGNOSTICO');
        $fevaluacion=$fichapiobin->getValue('FEVALUACION');
+       $fevaluacion=date('d/m/Y',strtotime($fevaluacion));
+       if (trim($fevaluacion)=='01/01/1970'){
+           $fevaluacion="";
+       }
+       
        $imc_evaluacion=$fichapiobin->getValue('IMC_EVALUACION');
        $desviacion_evaluacion=$fichapiobin->getValue('DESVIACION_EVALUACION');
        $frutanino= $fichapiobin->getValue('FRUTANINO');
@@ -598,8 +613,7 @@ function valida_decimales(numero) {
                                   value="<?php 
                                    if ($cod>0) {
                                    echo $fevaluacion;
-                                 }   else {
-                                 echo date('d/m/Y');} ?>"/> 
+                                 }    ?>"/> 
                         </td>
                         <td>
                            <input type="text" id="imc_evaluacion" name="imc_evaluacion" size="10" onblur="valida_decimales(this.value)"
