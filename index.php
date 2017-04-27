@@ -20,9 +20,9 @@ list($listacambios)= PiobinCambios::listaCambios();
 
 if (isset ($_GET['nuhsa'])){
     
-    $usuario=Usuarios::getUsuario($_GET['nuhsa']);
+   // $usuario=Usuarios::getUsuario($_GET['nuhsa']);
     $centro=$_GET['centro'];
-    $an=$usuario->getValue('NUHSA');
+    $an=$_GET['nuhsa'];
    
     $cnp=$_GET['cnpprofesional'];
     
@@ -142,7 +142,7 @@ if (isset ($_GET['nuhsa'])){
  if (isset ($_POST['registrar'])) {
 
      
-        $usuario=Usuarios::getUsuario($_POST['an']);
+       // $usuario=Usuarios::getUsuario($_POST['an']);
        // $nombre_usuario=trim($usuario->getValueEncoded('APE1')) . " " . trim($usuario->getValueEncoded('APE2')) . ", " . trim($usuario->getValueEncoded('NOMBRE'));
         $centro=$_POST['centro'];
        
