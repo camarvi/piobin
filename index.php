@@ -5,7 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 CAMBIAR DATOS 
 -->
-
+  
 <?php
 
 
@@ -92,7 +92,7 @@ if (isset ($_GET['nuhsa'])){
        
        $fevaluacion_inter=$fichapiobin->getValue('FEVALUACION');
        $fevaluacion=date('d/m/Y',strtotime($fevaluacion_inter));
-       if (trim($fevaluacion)=='01/01/1970'){
+       if ((trim($fevaluacion)=='01/01/1970') or (trim($fevaluacion)=='01/01/1900')){
            $fevaluacion="";
        }
        
@@ -131,8 +131,6 @@ if (isset ($_GET['nuhsa'])){
        $actividad_madre= $fichapiobin->getValue('ACTIVIDAD_MADRE');
        $actividad_padre= $fichapiobin->getValue('ACTIVIDAD_PADRE');
        $refuerzo_pos= $fichapiobin->getValue('REFUERZO_POS');
-       
-            
         
     }
 }
@@ -289,14 +287,14 @@ if (isset ($_GET['nuhsa'])){
        $cnp=$fichapiobin->getValue('CNP');
        $fecha=$fichapiobin->getValue('FECHA');
        $fecha=date('d/m/Y',strtotime($fecha));
-       if (trim($fecha)=='01/01/1970'){
+       if ((trim($fecha)=='01/01/1970') or (trim($fecha)=='01/01/1900')){
            $fecha="";
        }
        
        $tiempo=$fichapiobin->getValue('TIEMPO');
        $fdiagnostico=$fichapiobin->getValue('FDIAGNOSTICO');
        $fdiagnostico=date('d/m/Y',strtotime($fdiagnostico));
-       if (trim($fdiagnostico)=='01/01/1970'){
+       if ((trim($fdiagnostico)=='01/01/1970') or (trim($fdiagnostico)=='01/01/1900')){
            $fdiagnostico="";
        }
        
@@ -304,7 +302,7 @@ if (isset ($_GET['nuhsa'])){
        $desviacion_diagnostico=$fichapiobin->getValue('DESVIACION_DIAGNOSTICO');
        $fevaluacion=$fichapiobin->getValue('FEVALUACION');
        $fevaluacion=date('d/m/Y',strtotime($fevaluacion));
-       if (trim($fevaluacion)=='01/01/1970'){
+       if ((trim($fevaluacion)=='01/01/1970') or (trim($fevaluacion)=='01/01/1970')){
            $fevaluacion="";
        }
        
@@ -343,7 +341,6 @@ if (isset ($_GET['nuhsa'])){
        $actividad_madre= $fichapiobin->getValue('ACTIVIDAD_MADRE');
        $actividad_padre= $fichapiobin->getValue('ACTIVIDAD_PADRE');
        $refuerzo_pos= $fichapiobin->getValue('REFUERZO_POS');
-       
         
     }
      
@@ -567,7 +564,7 @@ function valida_decimales(numero) {
                    <?php  } else { ?>  
                         <option value="<?php echo $ltiempo->getValueEncoded('COD')?>">
                    <?php } ?>  
-                   <?php echo (($ltiempo->getValueEncoded('TIEMPO')))?></option>
+                   <?php echo (($ltiempo->getValue('TIEMPO')))?></option>
                 <?php
                
                  }
