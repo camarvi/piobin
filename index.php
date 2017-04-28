@@ -566,7 +566,7 @@ function valida_decimales(numero) {
                    <?php } ?>  
                    <?php echo (($ltiempo->getValue('TIEMPO')))?></option>
                 <?php
-               
+                       
                  }
                 ?>
             </select>    
