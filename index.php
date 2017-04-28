@@ -302,7 +302,7 @@ if (isset ($_GET['nuhsa'])){
        $desviacion_diagnostico=$fichapiobin->getValue('DESVIACION_DIAGNOSTICO');
        $fevaluacion=$fichapiobin->getValue('FEVALUACION');
        $fevaluacion=date('d/m/Y',strtotime($fevaluacion));
-       if ((trim($fevaluacion)=='01/01/1970') or (trim($fevaluacion)=='01/01/1970')){
+       if ((trim($fevaluacion)=='01/01/1970') or (trim($fevaluacion)=='01/01/1900')){
            $fevaluacion="";
        }
        
@@ -1319,7 +1319,7 @@ function valida_decimales(numero) {
            </fieldset>         
            
           <?php  if ($cod<1) { ?>
-            <button type="submit" id="registar" name="registrar" class="botoncentrado" onClick="window.print()">
+            <button type="submit" id="registar" name="registrar" class="botoncentrado">
                  Registrar
              </button>
           <?php } else { ?> 
@@ -1328,7 +1328,7 @@ function valida_decimales(numero) {
              </button>
           <?php } ?>
        </form>    
-    
-    
+        
+        
     </body>
 </html>
