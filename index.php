@@ -1328,7 +1328,7 @@ function valida_decimales(numero) {
              </button>
           <?php } ?>
        </form>    
-        
+               
         
     </body>
 </html>

@@ -22,7 +22,7 @@ require_once ("common.inc.php");
   
   if (strlen($fdiagnosticook)<3) {
       
-     $fdiagnosticook=null; 
+     $fdiagnosticook=''; 
       
   }
   
@@ -33,7 +33,7 @@ require_once ("common.inc.php");
   $fevaluacionok=$anio2 . "-" . $mes2 . "-" . $dia2;
   
   if (strlen($fevaluacionok)<3) {
-     $fevaluacionok=null; 
+     $fevaluacionok=''; 
   }
 
 $modificafichapiobin=new FichaPiobin(array(
